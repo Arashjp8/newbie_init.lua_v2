@@ -11,7 +11,7 @@ return {
       neo_tree.setup({
         window = {
         position = "left",
-        width = 30,
+        width = 32,
         }
       })
       
