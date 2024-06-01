@@ -1,0 +1,7 @@
+{
+  "arctic": { "branch": "main", "commit": "1ed00a7a78c3dfdd39b2d5b223822a160bb4b843" },
+  "lazy.nvim": { "branch": "main", "commit": "eab487c2520f0fe9e54eb5e3ea0606e20512492e" },
+  "lush.nvim": { "branch": "main", "commit": "7c0e27f50901481fe83b974493c4ea67a4296aeb" },
+  "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
+  "telescope.nvim": { "branch": "master", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" }
+}
