@@ -33,6 +33,15 @@ local plugins = {
       dependencies = { 'nvim-lua/plenary.nvim' }
   },
   {'nvim-treesitter/nvim-treesitter', build = ":TSUpdate"},
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", 
+      "MunifTanjim/nui.nvim",
+    }
+  },
 }
 local opts = {}
 
@@ -42,9 +51,19 @@ local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<Space><Space>', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 
+vim.keymap.set('n', '<leader>t', ":Neotree filesystem reveal left toggle<CR>", {})
+
 local config = require("nvim-treesitter.configs")
 config.setup({
   ensure_installed = {"c", "cpp", "lua", "javascript", "typescript", "vim", "bash", "css", "html"},
   highlight = {enable = true},
   indent = {enable = true}
+})
+
+local neo_tree = require("neo-tree")
+neo_tree.setup({
+  window = {
+    position = "left",
+    width = 30,
+  }
 })
