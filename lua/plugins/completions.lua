@@ -1,4 +1,4 @@
-return { 
+return {   
 	{
 		"hrsh7th/cmp-nvim-lsp",
 	},
@@ -33,7 +33,7 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
-					--				{ name = "nvim_lsp" },
+					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 				}, {
 					{ name = "buffer" },
