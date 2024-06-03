@@ -29,7 +29,6 @@ return {
 --
 -- 			require("nvim-tree").setup({})
 --
--- 			-- vim.keymap.set("n", "<c-t>", ":NvimTreeFindFile<CR>")
 -- 			vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>")
 -- 		end,
 -- 	},
