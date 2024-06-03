@@ -14,26 +14,26 @@ return {
 		end)
 
 		-- h
-		vim.keymap.set("n", "<M-1>", function()
+		vim.keymap.set("n", "<leader>1", function()
 			harpoon:list():select(1)
 		end)
 		-- t
-		vim.keymap.set("n", "<M-2>", function()
+		vim.keymap.set("n", "<leader>2", function()
 			harpoon:list():select(2)
 		end)
 		-- n
-		vim.keymap.set("n", "<M-3>", function()
+		vim.keymap.set("n", "<leader>3", function()
 			harpoon:list():select(3)
 		end)
 		-- s
-		vim.keymap.set("n", "<M-4>", function()
+		vim.keymap.set("n", "<leader>4", function()
 			harpoon:list():select(4)
 		end)
 
-		vim.keymap.set("n", "<M-S-P>", function()
+		vim.keymap.set("n", "<C-S-P>", function()
 			harpoon:list():prev()
 		end)
-		vim.keymap.set("n", "<M-S-N>", function()
+		vim.keymap.set("n", "<C-S-N>", function()
 			harpoon:list():next()
 		end)
 	end,
