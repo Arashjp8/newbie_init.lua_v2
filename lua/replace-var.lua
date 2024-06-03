@@ -1,32 +1,37 @@
-local function replace_variable(varname, newvarname)
-  local find_cmd = "find . -type f"
-  local files = vim.fn.systemlist(find_cmd)
-  local vimgrep_cmd = "vimgrep /" .. varname .. "/ " .. table.concat(files, " ")
+local function replace_variable(varname, newvarname, filetype, directory)
+	local find_cmd = "find " .. directory .. " -type f -name '*" .. filetype .. "'"
+	local files = vim.fn.systemlist(find_cmd)
 
-  vim.cmd(vimgrep_cmd)
+	if #files == 0 then
+		print("No files found with the specified filetype: " .. filetype)
+		return
+	end
 
-  vim.cmd("copen")
+	local vimgrep_cmd = "vimgrep /" .. varname .. "/ " .. table.concat(files, " ")
 
-  local cdo_cmd = "cdo %s/" .. varname .. "/" .. newvarname .. "/gc"
-  vim.cmd(cdo_cmd)
+	vim.cmd(vimgrep_cmd)
+	vim.cmd("copen")
 
-  vim.cmd("cclose")
+	local cdo_cmd = "cdo %s/" .. varname .. "/" .. newvarname .. "/gc"
+	vim.cmd(cdo_cmd)
+
+	vim.cmd("cclose")
 end
 
 vim.api.nvim_create_user_command("ReplaceVar", function(opts)
-  local args = vim.split(opts.args, " ")
-  if #args == 2 then
-    replace_variable(args[1], args[2])
-  else
-    print("Usage: :ReplaceVar <variableName> <newVariableName>")
-  end
+	local args = vim.split(opts.args, " ")
+	if #args == 4 then
+		replace_variable(args[1], args[2], args[3], args[4])
+	else
+		print("Usage: :ReplaceVar <variableName> <newVariableName> <fileType> <directory>")
+	end
 end, { nargs = 1 })
 
 _G.replace_variable = replace_variable
 
 vim.api.nvim_set_keymap(
-  "n",
-  "<leader>rv",
-  [[:lua replace_variable(vim.fn.input('Variable name: '), vim.fn.input('New variable name: '))<CR>]],
-  { noremap = true, silent = true }
+	"n",
+	"<leader>rv",
+	[[:lua replace_variable(vim.fn.input('Variable name: '), vim.fn.input('New variable name: '), vim.fn.input('File type: '), vim.fn.input('Directory: '))<CR>]],
+	{ noremap = true, silent = true }
 )
