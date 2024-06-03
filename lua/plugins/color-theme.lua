@@ -1,24 +1,24 @@
 return {
-  "rockyzhang24/arctic.nvim",
-  dependencies = { "rktjmp/lush.nvim" },
-  name = "arctic",
-  branch = "v2",
-  priority = 1000,
-  config = function()
-    vim.cmd("colorscheme arctic")
-  end
+	"rockyzhang24/arctic.nvim",
+	dependencies = { "rktjmp/lush.nvim" },
+	name = "arctic",
+	branch = "v2",
+	priority = 1000,
+	config = function()
+		vim.cmd("colorscheme arctic")
+	end,
 }
 
 -- return {
---   {
---     "catppuccin/nvim",
---     lazy = false,
---     name = "catppuccin",
---     priority = 1000,
---     config = function()
---       vim.cmd.colorscheme "catppuccin-mocha"
---     end
---   }
+-- 	{
+-- 		"catppuccin/nvim",
+-- 		lazy = false,
+-- 		name = "catppuccin",
+-- 		priority = 1000,
+-- 		config = function()
+-- 			vim.cmd.colorscheme("catppuccin-mocha")
+-- 		end,
+-- 	},
 -- }
 
 -- return {
