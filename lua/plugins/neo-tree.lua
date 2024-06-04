@@ -13,6 +13,14 @@ return {
 				position = "left",
 				width = 32,
 			},
+			filesystem = {
+				filtered_items = {
+					visible = true,
+					hide_dotfiles = false,
+					hide_gitignored = false,
+					hide_hidden = false,
+				},
+			},
 		})
 
 		vim.keymap.set("n", "<leader>t", ":Neotree filesystem reveal left toggle<CR>", {})
