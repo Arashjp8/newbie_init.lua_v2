@@ -1,4 +1,4 @@
-local function replace_variable(varname, newvarname, filetype, directory)
+local function replace_variable_with_confirmation(varname, newvarname, filetype, directory)
 	local find_cmd = "find " .. directory .. " -type f -name '*" .. filetype .. "'"
 	local files = vim.fn.systemlist(find_cmd)
 
@@ -21,13 +21,13 @@ end
 vim.api.nvim_create_user_command("ReplaceVar", function(opts)
 	local args = vim.split(opts.args, " ")
 	if #args == 4 then
-		replace_variable(args[1], args[2], args[3], args[4])
+		replace_variable_with_confirmation(args[1], args[2], args[3], args[4])
 	else
 		print("Usage: :ReplaceVar <variableName> <newVariableName> <fileType> <directory>")
 	end
 end, { nargs = 1 })
 
-_G.replace_variable = replace_variable
+_G.replace_variable = replace_variable_with_confirmation
 
 vim.api.nvim_set_keymap(
 	"n",
