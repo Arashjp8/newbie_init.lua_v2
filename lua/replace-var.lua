@@ -31,7 +31,7 @@ _G.replace_variable = replace_variable_with_confirmation
 
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>rv",
+	"<leader>R",
 	[[:lua replace_variable(vim.fn.input('Variable name: '), vim.fn.input('New variable name: '), vim.fn.input('File type: '), vim.fn.input('Directory: '))<CR>]],
 	{ noremap = true, silent = true }
 )

@@ -6,6 +6,7 @@ vim.cmd("set number relativenumber")
 
 vim.g.mapleader = " "
 
+vim.opt.clipboard = "unnamedplus"
 vim.opt.scrolloff = 10
 vim.opt.ignorecase = true
 
