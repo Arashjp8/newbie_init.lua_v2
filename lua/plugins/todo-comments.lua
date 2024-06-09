@@ -1,18 +1,18 @@
 return {
-	"Djancyp/better-comments.nvim",
-	config = function()
-		require("better-comment").Setup()
-	end,
+  "Djancyp/better-comments.nvim",
+  config = function()
+    require("better-comment").Setup()
+  end,
 }
 
 -- return {
---   "folke/todo-comments.nvim",
---   dependencies = { "nvim-lua/plenary.nvim" },
---   config = function()
---     require("todo-comments").setup()
+-- 	"folke/todo-comments.nvim",
+-- 	dependencies = { "nvim-lua/plenary.nvim" },
+-- 	config = function()
+-- 		require("todo-comments").setup()
 --
---     vim.keymap.set("n", "<leader>tt", ":TodoTelescope<CR>")
---   end,
+-- 		vim.keymap.set("n", "<leader>tt", ":TodoTelescope<CR>")
+-- 	end,
 -- }
 
 -- PERF: fully optimized
