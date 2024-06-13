@@ -20,7 +20,7 @@ return {
       },
       routes = {
         {
-          view = "notify",
+          -- view = "notify",
           filter = { event = "msg_showmode" },
         },
         {
@@ -40,13 +40,13 @@ return {
     -- OPTIONAL:
     --   `nvim-notify` is only needed, if you want to use the notification view.
     --   If not available, we use `mini` as the fallback
-    {
-      "rcarriga/nvim-notify",
-      opts = {
-        timeout = 5000,
-        render = "minimal",
-        stages = "slide",
-      },
-    },
+    -- {
+    --   "rcarriga/nvim-notify",
+    --   opts = {
+    --     timeout = 5000,
+    --     render = "minimal",
+    --     stages = "slide",
+    --   },
+    -- },
   },
 }
