@@ -40,6 +40,7 @@ return {
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 				}),
 				sources = cmp.config.sources({
+					-- WARNING: cody is disabled
 					-- { name = "cody"},
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
