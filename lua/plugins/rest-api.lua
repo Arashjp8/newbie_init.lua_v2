@@ -32,6 +32,11 @@ return {
 		},
 	},
 	config = function()
-		require("ship").setup({})
+		require("ship").setup({
+			-- Mapping bound to user init.lua
+			vim.api.nvim_set_keymap("n", "<leader>sh", "<cmd>Ship<CR>", { noremap = true, silent = true }),
+			-- Mapping bound to user init.lua
+			vim.api.nvim_set_keymap("n", "<leader>sc", "<cmd>ShipCloseResponse<CR>", { noremap = true, silent = true }),
+		})
 	end,
 }
