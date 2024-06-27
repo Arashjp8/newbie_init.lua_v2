@@ -10,16 +10,17 @@ return {
     lazy = false,
     config = function()
       require("mason-lspconfig").setup({
+        auto_install = true,
         ensure_installed = {
-          "lua_ls",
           "html",
           "cssls",
           "cssmodules_ls",
           "css_variables",
           "tailwindcss",
+          "bashls",
           "tsserver",
           "clangd",
-          "bashls",
+          "lua_ls",
           "markdown_oxide",
         },
       })
