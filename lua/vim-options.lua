@@ -11,6 +11,10 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.scrolloff = 10
 vim.opt.ignorecase = true
 
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+
 -- vim.keymap.set("v", "<M-Down>", ":m '>+1<CR>gv=gv")
 -- vim.keymap.set("v", "<M-Up>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv")

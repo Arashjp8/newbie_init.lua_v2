@@ -20,7 +20,7 @@ return {
       },
       routes = {
         {
-          -- view = "notify",
+          view = "notify",
           filter = { event = "msg_showmode" },
         },
         {
