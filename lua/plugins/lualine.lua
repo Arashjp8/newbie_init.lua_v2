@@ -58,6 +58,7 @@ return {
 					-- { "mode", separator = { right = "" }, right_padding = 2 },
 				},
 				lualine_b = { "branch", "diff", "diagnostics" },
+				-- lualine_b = { "diff", "diagnostics" },
 				lualine_c = {
 					"filename",
 					{
