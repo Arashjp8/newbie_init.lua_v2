@@ -39,6 +39,14 @@ return {
 				require("cmp_nvim_lsp").default_capabilities()
 			)
 
+			local function organize_imports()
+				local params = {
+					command = "_typescript.organizeImports",
+					arguments = { vim.api.nvim_buf_get_name(0) },
+				}
+				vim.lsp.buf.execute_command(params)
+			end
+
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.html.setup({ capabilities = capabilities })
@@ -46,7 +54,15 @@ return {
 			lspconfig.cssmodules_ls.setup({ capabilities = capabilities })
 			lspconfig.css_variables.setup({ capabilities = capabilities })
 			lspconfig.tailwindcss.setup({ capabilities = capabilities })
-			lspconfig.ts_ls.setup({ capabilities = capabilities })
+			lspconfig.ts_ls.setup({
+				capabilities = capabilities,
+				commands = {
+					OrganizeImports = {
+						organize_imports,
+						description = "Organize Imports",
+					},
+				},
+			})
 			lspconfig.clangd.setup({ capabilities = capabilities })
 			lspconfig.bashls.setup({ capabilities = capabilities })
 			lspconfig.pylsp.setup({ capabilities = capabilities })
