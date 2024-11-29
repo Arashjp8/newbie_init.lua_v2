@@ -20,6 +20,9 @@ vim.opt.breakindent = true
 vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv")
 
+-- greatest remap ever
+vim.keymap.set("x", "<leader>p", [["_dP]])
+
 -- Navigate vim panes better
 vim.keymap.set("n", "<c-k>", ":wincmd k<CR>")
 vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
