@@ -70,6 +70,30 @@ return {
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+
+			-- Function to get diagnostics count
+			function _G.diagnostics()
+				local buf = vim.api.nvim_get_current_buf()
+				local diagnostics = vim.diagnostic.get(buf)
+
+				local errors = #vim.tbl_filter(function(d)
+					return d.severity == vim.diagnostic.severity.ERROR
+				end, diagnostics)
+				local warnings = #vim.tbl_filter(function(d)
+					return d.severity == vim.diagnostic.severity.WARN
+				end, diagnostics)
+
+				return string.format("E:%d W:%d", errors, warnings)
+			end
+
+			-- Neovim LSP Diagnostics in statusline
+			vim.o.statusline = "%f   %h%w[%{v:lua.diagnostics()}] %m"
+
+			-- Update the statusline when diagnostics change
+			vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, _)
+				vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx)
+				vim.cmd("redrawstatus") -- Force statusline redraw
+			end
 		end,
 	},
 }

@@ -1,47 +1,49 @@
 return {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
-  config = function()
-    require("tokyonight").setup({
-      transparent = true,
-      style = "night",
-      styles = {
-        keywords = { italic = true },
-      },
-      on_colors = function(colors)
-        -- -- colors.bg = "#1e1e1e"
-        -- colors.bg = "#1f2329"
-        -- -- colors.bg = "#121212"
-        -- -- colors.bg_dark = "#252526"
-        -- colors.bg_dark = "#282c34"
-        -- -- colors.bg_float = "#1e1e1e"
-        -- colors.bg_float = "#1f2329"
-        -- -- colors.bg_statusline = "#252526"
-        -- colors.bg_statusline = "#282c34"
-        -- -- colors.bg_sidebar = "#1e1e1e"
-        -- colors.bg_sidebar = "#1f2329"
-        colors.git = {
-          add = "#73daca", -- Brighter teal
-          change = "#7aa2f7", -- Brighter blue
-          delete = "#f7768e", -- Vibrant red
-          ignore = "#737aa2", -- Softer, brighter gray-blue
-          -- add = "#449dab",
-          -- change = "#6183bb",
-          -- delete = "#914c54",
-          -- ignore = "#545c7e",
-        }
-        colors.gitSigns = {
-          add = "#449dab",
-          change = "#6183bb",
-          delete = "#b2555b",
-        }
-        -- colors.bg_visual = "#283457" -- original color
-      end,
-    })
-    vim.cmd.colorscheme("tokyonight-night")
-  end,
+	"folke/tokyonight.nvim",
+	lazy = false,
+	priority = 1000,
+	opts = {},
+	config = function()
+		require("tokyonight").setup({
+			transparent = true,
+			style = "night",
+			styles = {
+				keywords = { italic = true },
+				comments = { italic = false },
+				floats = "dark",
+			},
+			on_colors = function(colors)
+				-- -- colors.bg = "#1e1e1e"
+				-- colors.bg = "#1f2329"
+				-- -- colors.bg = "#121212"
+				-- -- colors.bg_dark = "#252526"
+				-- colors.bg_dark = "#282c34"
+				-- -- colors.bg_float = "#1e1e1e"
+				-- colors.bg_float = "#1f2329"
+				-- -- colors.bg_statusline = "#252526"
+				-- colors.bg_statusline = "#282c34"
+				-- -- colors.bg_sidebar = "#1e1e1e"
+				-- colors.bg_sidebar = "#1f2329"
+				colors.git = {
+					add = "#73daca", -- Brighter teal
+					change = "#7aa2f7", -- Brighter blue
+					delete = "#f7768e", -- Vibrant red
+					ignore = "#737aa2", -- Softer, brighter gray-blue
+					-- add = "#449dab",
+					-- change = "#6183bb",
+					-- delete = "#914c54",
+					-- ignore = "#545c7e",
+				}
+				colors.gitSigns = {
+					add = "#449dab",
+					change = "#6183bb",
+					delete = "#b2555b",
+				}
+				-- colors.bg_visual = "#283457" -- original color
+			end,
+		})
+		vim.cmd.colorscheme("tokyonight-night")
+	end,
 }
 
 -- return {
