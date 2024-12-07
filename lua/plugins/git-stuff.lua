@@ -19,6 +19,7 @@ return {
 					local bufnr = vim.api.nvim_get_current_buf()
 					local opts = { buffer = bufnr, remap = false }
 
+					-- Add changes
 					vim.keymap.set("n", "<leader>a", function()
 						vim.cmd.Git("add .")
 					end, opts)
@@ -28,11 +29,12 @@ return {
 						vim.cmd.Git("commit")
 					end, opts)
 
+					-- Push changes
 					vim.keymap.set("n", "<leader>p", function()
 						vim.cmd.Git("push")
 					end, opts)
 
-					-- rebase always
+					-- Pull with rebase always
 					vim.keymap.set("n", "<leader>P", function()
 						vim.cmd.Git({ "pull", "--rebase" })
 					end, opts)
@@ -49,8 +51,8 @@ return {
 		config = function()
 			require("gitsigns").setup()
 
-			vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
-			vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", {})
+			vim.keymap.set("n", "<leader>gd", ":Gitsigns preview_hunk<CR>", {})
+			vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", {})
 		end,
 	},
 }
