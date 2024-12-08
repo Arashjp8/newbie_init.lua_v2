@@ -5,6 +5,14 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set number relativenumber")
 vim.cmd("set termbidi")
 
+vim.cmd([[
+  augroup CustomStatusLine
+    autocmd!
+    autocmd ColorScheme * lua vim.api.nvim_set_hl(0, "StatusLine", { fg = "#8a97b7", bg = "NONE", bold = true })
+    autocmd ColorScheme * lua vim.api.nvim_set_hl(0, "StatusLineNC", { fg = "#8a97b7", bg = "#303030" })
+  augroup END
+]])
+
 vim.g.mapleader = " "
 
 vim.opt.clipboard = "unnamedplus"
