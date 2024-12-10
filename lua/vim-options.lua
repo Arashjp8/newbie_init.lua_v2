@@ -8,12 +8,14 @@ vim.cmd("set termbidi")
 vim.cmd([[
   augroup CustomStatusLine
     autocmd!
-    autocmd ColorScheme * lua vim.api.nvim_set_hl(0, "StatusLine", { fg = "#8a97b7", bg = "NONE", bold = true })
-    autocmd ColorScheme * lua vim.api.nvim_set_hl(0, "StatusLineNC", { fg = "#8a97b7", bg = "#303030" })
+    autocmd ColorScheme * lua vim.api.nvim_set_hl(0, "StatusLine", { fg = "#8a97b7", bg = "#16161e", bold = false})
+    autocmd ColorScheme * lua vim.api.nvim_set_hl(0, "StatusLineNC", { fg = "NONE", bg = "NONE" })
   augroup END
 ]])
 
 vim.g.mapleader = " "
+
+vim.g.netrw_banner = 0
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.scrolloff = 10
