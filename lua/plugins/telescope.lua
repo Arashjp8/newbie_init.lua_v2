@@ -2,19 +2,26 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.6",
-		dependencies = { "nvim-lua/plenary.nvim" },
+		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
 		config = function()
 			local builtin = require("telescope.builtin")
+			local themes = require("telescope.themes")
 
 			vim.keymap.set("n", "<Space><Space>", function()
-				builtin.find_files({ hidden = true })
+				builtin.find_files(themes.get_ivy({ hidden = true }))
 			end, {})
-			vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-
-			-- getting all refrences for the variable under cursor
-			vim.keymap.set("n", "<leader>ic", function()
-				builtin.lsp_incoming_calls()
+			vim.keymap.set("n", "<leader>fg", function()
+				builtin.live_grep(themes.get_ivy())
 			end, {})
+			vim.keymap.set("n", "<leader>fr", function()
+				builtin.lsp_references(themes.get_ivy())
+			end)
+			vim.keymap.set("n", "<leader>fr", function()
+				builtin.lsp_references(themes.get_ivy())
+			end)
+			vim.keymap.set("n", "<leader>fh", function()
+				builtin.help_tags(themes.get_ivy())
+			end)
 		end,
 	},
 	{

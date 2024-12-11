@@ -44,5 +44,11 @@ vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
+-- quickfix list
+vim.keymap.set("n", "<leader>n", ":cnext<CR>", { silent = true, desc = "Go to the next item in the quickfix list" })
+vim.keymap.set("n", "<leader>p", ":cprev<CR>", { silent = true, desc = "Go to the previous item in the quickfix list" })
+-- vim.keymap.set("n", "<leader>co", ":copen<CR>", { silent = true, desc = "Open the quickfix window" })
+-- vim.keymap.set("n", "<leader>cc", ":cclose<CR>", { silent = true, desc = "Close the quickfix window" })
+
 vim.keymap.set("n", "<leader>hl", ":nohlsearch<CR>")
 vim.wo.number = true
