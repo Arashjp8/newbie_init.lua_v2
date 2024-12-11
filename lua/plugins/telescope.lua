@@ -2,25 +2,27 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.6",
-		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		},
 		config = function()
 			local builtin = require("telescope.builtin")
-			local themes = require("telescope.themes")
 
 			vim.keymap.set("n", "<Space><Space>", function()
-				builtin.find_files(themes.get_ivy({ hidden = true }))
+				builtin.find_files({ hidden = true })
 			end, {})
+
 			vim.keymap.set("n", "<leader>fg", function()
-				builtin.live_grep(themes.get_ivy())
+				builtin.live_grep()
 			end, {})
+
 			vim.keymap.set("n", "<leader>fr", function()
-				builtin.lsp_references(themes.get_ivy())
+				builtin.lsp_references()
 			end)
-			vim.keymap.set("n", "<leader>fr", function()
-				builtin.lsp_references(themes.get_ivy())
-			end)
+
 			vim.keymap.set("n", "<leader>fh", function()
-				builtin.help_tags(themes.get_ivy())
+				builtin.help_tags()
 			end)
 		end,
 	},
@@ -28,11 +30,37 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 		config = function()
 			require("telescope").setup({
+				defaults = {
+					layout_strategy = "flex",
+					layout_config = {
+						width = 0.99,
+						height = 0.90,
+						flip_columns = 120,
+						horizontal = {
+							prompt_position = "bottom",
+						},
+						vertical = {
+							mirror = false,
+						},
+					},
+					mappings = {
+						i = {
+							["<C-j>"] = require("telescope.actions").move_selection_next,
+							["<C-k>"] = require("telescope.actions").move_selection_previous,
+						},
+						n = {
+							["<C-j>"] = require("telescope.actions").move_selection_next,
+							["<C-k>"] = require("telescope.actions").move_selection_previous,
+						},
+					},
+				},
 				extensions = {
+					fzf = {},
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({}),
 						require("telescope").load_extension("ui-select"),
 					},
+					require("telescope").load_extension("fzf"),
 				},
 			})
 		end,
