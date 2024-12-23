@@ -1,23 +1,23 @@
 -- return {
--- 		"folke/tokyonight.nvim",
--- 		lazy = false,
--- 		priority = 1000,
--- 		opts = {},
--- 		config = function()
--- 			require("tokyonight").setup({
--- 				on_highlights = function() end,
--- 				transparent = true,
--- 				style = "night",
--- 				styles = {
--- 					keywords = { italic = false },
--- 					comments = { italic = false },
--- 					floats = "dark",
--- 				},
--- 				on_colors = function() end,
--- 			})
+-- 	"folke/tokyonight.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	opts = {},
+-- 	config = function()
+-- 		require("tokyonight").setup({
+-- 			on_highlights = function() end,
+-- 			transparent = true,
+-- 			style = "night",
+-- 			styles = {
+-- 				keywords = { italic = false },
+-- 				comments = { italic = false },
+-- 				floats = "dark",
+-- 			},
+-- 			on_colors = function() end,
+-- 		})
 -- 		vim.cmd("colorscheme tokyonight")
--- 		end,
--- 	}
+-- 	end,
+-- }
 
 return {
 	"projekt0n/github-nvim-theme",
@@ -75,99 +75,101 @@ return {
 		vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#565f89", bg = "#1f2335" })
 		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#1f2335" })
 		vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#565f89", bg = "#1f2335" })
-		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#ff5555" })
+		-- vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#ff5555" })
+		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#F78166" })
 	end,
 }
 
--- return	{
--- 		"rose-pine/neovim",
--- 		name = "rose-pine",
--- 		config = function()
--- 			require("rose-pine").setup({
--- 				variant = "auto", -- auto, main, moon, or dawn
--- 				dark_variant = "main", -- main, moon, or dawn
--- 				dim_inactive_windows = false,
--- 				extend_background_behind_borders = true,
--- 				enable = {
--- 					terminal = true,
--- 					legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
--- 					migrations = true, -- Handle deprecated options automatically
+-- return {
+-- 	"rose-pine/neovim",
+-- 	name = "rose-pine",
+-- 	config = function()
+-- 		require("rose-pine").setup({
+-- 			variant = "auto", -- auto, main, moon, or dawn
+-- 			dark_variant = "main", -- main, moon, or dawn
+-- 			dim_inactive_windows = false,
+-- 			extend_background_behind_borders = true,
+-- 			enable = {
+-- 				terminal = true,
+-- 				legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+-- 				migrations = true, -- Handle deprecated options automatically
+-- 			},
+-- 			styles = {
+-- 				bold = true,
+-- 				italic = false,
+-- 				transparency = true,
+-- 			},
+-- 			groups = {
+-- 				border = "muted",
+-- 				link = "iris",
+-- 				panel = "surface",
+-- 				error = "love",
+-- 				hint = "iris",
+-- 				info = "foam",
+-- 				note = "pine",
+-- 				todo = "rose",
+-- 				warn = "gold",
+-- 				git_add = "foam",
+-- 				git_change = "rose",
+-- 				git_delete = "love",
+-- 				git_dirty = "rose",
+-- 				git_ignore = "muted",
+-- 				git_merge = "iris",
+-- 				git_rename = "pine",
+-- 				git_stage = "iris",
+-- 				git_text = "rose",
+-- 				git_untracked = "subtle",
+-- 				h1 = "iris",
+-- 				h2 = "foam",
+-- 				h3 = "rose",
+-- 				h4 = "gold",
+-- 				h5 = "pine",
+-- 				h6 = "foam",
+-- 			},
+-- 			palette = {
+-- 				-- Override the builtin palette per variant
+-- 				moon = {
+-- 					base = "#18191a",
+-- 					overlay = "#363738",
 -- 				},
--- 				styles = {
--- 					bold = true,
--- 					italic = false,
--- 					transparency = true,
--- 				},
--- 				groups = {
--- 					border = "muted",
--- 					link = "iris",
--- 					panel = "surface",
--- 					error = "love",
--- 					hint = "iris",
--- 					info = "foam",
--- 					note = "pine",
--- 					todo = "rose",
--- 					warn = "gold",
--- 					git_add = "foam",
--- 					git_change = "rose",
--- 					git_delete = "love",
--- 					git_dirty = "rose",
--- 					git_ignore = "muted",
--- 					git_merge = "iris",
--- 					git_rename = "pine",
--- 					git_stage = "iris",
--- 					git_text = "rose",
--- 					git_untracked = "subtle",
--- 					h1 = "iris",
--- 					h2 = "foam",
--- 					h3 = "rose",
--- 					h4 = "gold",
--- 					h5 = "pine",
--- 					h6 = "foam",
--- 				},
--- 				palette = {
--- 					-- Override the builtin palette per variant
--- 					moon = {
--- 						base = "#18191a",
--- 						overlay = "#363738",
--- 					},
--- 				},
--- 				highlight_groups = {
--- 					-- Comment = { fg = "foam" },
--- 					-- VertSplit = { fg = "muted", bg = "muted" },
--- 				},
--- 				before_highlight = function(group, highlight, palette)
--- 					-- Disable all undercurls
--- 					-- if highlight.undercurl then
--- 					--     highlight.undercurl = false
--- 					-- end
--- 					-- Change palette colour
--- 					-- if highlight.fg == palette.pine then
--- 					--     highlight.fg = palette.foam
--- 					-- end
--- 				end,
--- 			})
--- 			-- vim.cmd("colorscheme rose-pine")
--- 			-- vim.cmd("colorscheme rose-pine-main")
--- 			-- vim.cmd("colorscheme rose-pine-moon")
--- 			-- vim.cmd("colorscheme rose-pine-dawn")
--- 			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#26233A" })
--- 			vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#6E6A86", bg = "#26233A" })
--- 			vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#26233A" })
--- 			vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#6E6A86", bg = "#26233A" })
--- 			local hl_id = vim.api.nvim_get_hl_id_by_name("Visual")
--- 			local hl_info = vim.api.nvim_get_hl(0, { id = hl_id })
--- 			vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = hl_info.bg, fg = "#E0DEF4" })
--- 		end,
--- 	}
+-- 			},
+-- 			highlight_groups = {
+-- 				-- Comment = { fg = "foam" },
+-- 				-- VertSplit = { fg = "muted", bg = "muted" },
+-- 			},
+-- 			before_highlight = function(group, highlight, palette)
+-- 				-- Disable all undercurls
+-- 				-- if highlight.undercurl then
+-- 				--     highlight.undercurl = false
+-- 				-- end
+-- 				-- Change palette colour
+-- 				-- if highlight.fg == palette.pine then
+-- 				--     highlight.fg = palette.foam
+-- 				-- end
+-- 			end,
+-- 		})
+-- 		-- vim.cmd("colorscheme rose-pine")
+-- 		-- vim.cmd("colorscheme rose-pine-main")
+-- 		vim.cmd("colorscheme rose-pine-moon")
+-- 		-- vim.cmd("colorscheme rose-pine-dawn")
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#26233A" })
+-- 		vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#6E6A86", bg = "#26233A" })
+-- 		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#26233A" })
+-- 		vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#6E6A86", bg = "#26233A" })
+-- 		local hl_id = vim.api.nvim_get_hl_id_by_name("Visual")
+-- 		local hl_info = vim.api.nvim_get_hl(0, { id = hl_id })
+-- 		vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = hl_info.bg, fg = "#E0DEF4" })
+-- 	end,
+-- }
 
 -- return {
 -- 	"Mofiqul/vscode.nvim",
 -- 	priority = 1000,
 -- 	config = function()
 -- 		require("vscode").setup({
--- 			transparent = false,
+-- 			transparent = true,
 -- 		})
 -- 		vim.cmd.colorscheme("vscode")
+-- 		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#1E1E1E" })
 -- 	end,
 -- }

@@ -13,6 +13,36 @@ vim.cmd([[
   augroup END
 ]])
 
+-- Function to get diagnostics count
+function _G.diagnostics()
+	local buf = vim.api.nvim_get_current_buf()
+	local diagnostics = vim.diagnostic.get(buf)
+
+	local errors = #vim.tbl_filter(function(d)
+		return d.severity == vim.diagnostic.severity.ERROR
+	end, diagnostics)
+	local warnings = #vim.tbl_filter(function(d)
+		return d.severity == vim.diagnostic.severity.WARN
+	end, diagnostics)
+	local hints = #vim.tbl_filter(function(d)
+		return d.severity == vim.diagnostic.severity.HINT
+	end, diagnostics)
+
+	-- Format diagnostics with errors, warnings, and hints
+	return string.format("E:%d W:%d H:%d", errors, warnings, hints)
+	-- Alternatively, use symbols for the status line (for a more visual approach)
+	-- return string.format(" :%d  :%d  :%d", errors, warnings, hints)
+end
+
+-- Neovim LSP Diagnostics in statusline
+vim.o.statusline = "%f %m %r %h%w[%{v:lua.diagnostics()}] %=%l,%c            %p%%"
+
+-- Update the statusline when diagnostics change
+vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, _)
+	vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx)
+	vim.cmd("redrawstatus") -- Force statusline redraw
+end
+
 vim.g.mapleader = " "
 
 vim.g.netrw_banner = 0
@@ -44,11 +74,17 @@ vim.keymap.set("n", "<c-j>", ":wincmd j<CR>")
 vim.keymap.set("n", "<c-h>", ":wincmd h<CR>")
 vim.keymap.set("n", "<c-l>", ":wincmd l<CR>")
 
--- quickfix list
-vim.keymap.set("n", "<leader>n", ":cnext<CR>", { silent = true, desc = "Go to the next item in the quickfix list" })
-vim.keymap.set("n", "<leader>p", ":cprev<CR>", { silent = true, desc = "Go to the previous item in the quickfix list" })
--- vim.keymap.set("n", "<leader>co", ":copen<CR>", { silent = true, desc = "Open the quickfix window" })
--- vim.keymap.set("n", "<leader>cc", ":cclose<CR>", { silent = true, desc = "Close the quickfix window" })
+-- Quickfix list
+vim.keymap.set("n", "<M-j>", ":cnext<CR>", { silent = true, desc = "Go to the next item in the quickfix list" })
+vim.keymap.set("n", "<M-k>", ":cprev<CR>", { silent = true, desc = "Go to the previous item in the quickfix list" })
 
 vim.keymap.set("n", "<leader>hl", ":nohlsearch<CR>")
 vim.wo.number = true
+
+-- vim.opt.colorcolumn = "80"
+-- vim.cmd([[
+--   augroup CustomColors
+--     autocmd!
+--     autocmd ColorScheme * hi ColorColumn guibg=#16161e
+--   augroup END
+-- ]])

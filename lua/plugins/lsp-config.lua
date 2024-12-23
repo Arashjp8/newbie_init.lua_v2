@@ -78,41 +78,11 @@ return {
 			lspconfig.bashls.setup({ capabilities = capabilities })
 			lspconfig.pylsp.setup({ capabilities = capabilities })
 
-			vim.keymap.set("n", "H", vim.lsp.buf.hover, {})
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 			vim.keymap.set({ "n", "v" }, "grr", vim.lsp.buf.references, {})
 			vim.keymap.set({ "n", "v" }, "<leader>rn", vim.lsp.buf.rename, {})
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
-
-			-- Function to get diagnostics count
-			function _G.diagnostics()
-				local buf = vim.api.nvim_get_current_buf()
-				local diagnostics = vim.diagnostic.get(buf)
-
-				local errors = #vim.tbl_filter(function(d)
-					return d.severity == vim.diagnostic.severity.ERROR
-				end, diagnostics)
-				local warnings = #vim.tbl_filter(function(d)
-					return d.severity == vim.diagnostic.severity.WARN
-				end, diagnostics)
-				local hints = #vim.tbl_filter(function(d)
-					return d.severity == vim.diagnostic.severity.HINT
-				end, diagnostics)
-
-				-- Format diagnostics with errors, warnings, and hints
-				return string.format("E:%d W:%d H:%d", errors, warnings, hints)
-				-- Alternatively, use symbols for the status line (for a more visual approach)
-				-- return string.format(" :%d  :%d  :%d", errors, warnings, hints)
-			end
-
-			-- Neovim LSP Diagnostics in statusline
-			vim.o.statusline = "%f %m %r %h%w[%{v:lua.diagnostics()}] %=%l,%c            %p%%"
-
-			-- Update the statusline when diagnostics change
-			vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, _)
-				vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx)
-				vim.cmd("redrawstatus") -- Force statusline redraw
-			end
 		end,
 	},
 }
