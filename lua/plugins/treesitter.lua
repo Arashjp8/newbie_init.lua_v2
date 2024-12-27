@@ -1,7 +1,13 @@
+---------------------------------------------------------------------
+-- Treesitter Plugin Setup
+---------------------------------------------------------------------
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
 	config = function()
+		---------------------------------------------------------------------
+		-- Treesitter Configuration
+		---------------------------------------------------------------------
 		local config = require("nvim-treesitter.configs")
 		config.setup({
 			modules = {},
@@ -24,11 +30,15 @@ return {
 			},
 			highlight = {
 				enable = true,
+				additional_vim_regex_highlighting = false,
 				custom_captures = {},
 			},
 			indent = { enable = true },
 		})
 
+		---------------------------------------------------------------------
+		-- Auto Commands for Custom Highlights
+		---------------------------------------------------------------------
 		vim.api.nvim_create_autocmd("FileType", {
 			callback = function()
 				-- NOTE: this is only for github dark theme
