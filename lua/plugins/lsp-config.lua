@@ -107,7 +107,12 @@ return {
       vim.keymap.set({ "n", "v" }, "grr", vim.lsp.buf.references, {})
       vim.keymap.set({ "n", "v" }, "<leader>rn", vim.lsp.buf.rename, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set("n", "[d", function()
+        vim.diagnostic.goto_next()
+      end, {})
+      vim.keymap.set("n", "]d", function()
+        vim.diagnostic.goto_prev()
+      end, {})
     end,
   },
 }
-
