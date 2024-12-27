@@ -5,13 +5,30 @@ vim.cmd("set shiftwidth=2")
 vim.cmd("set number relativenumber")
 vim.cmd("set termbidi")
 
-vim.cmd([[
-  augroup CustomStatusLine
-    autocmd!
-    autocmd ColorScheme * lua vim.api.nvim_set_hl(0, "StatusLine", { fg = "#8a97b7", bg = "#16161e", bold = false})
-    autocmd ColorScheme * lua vim.api.nvim_set_hl(0, "StatusLineNC", { fg = "NONE", bg = "NONE" })
-  augroup END
-]])
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
+local custom_status_line_group = augroup("CustomStatusLine", {})
+autocmd("ColorScheme", {
+	group = custom_status_line_group,
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_set_hl(0, "StatusLine", { fg = "#8a97b7", bg = "#16161e", bold = false })
+		vim.api.nvim_set_hl(0, "StatusLineNC", { fg = "NONE", bg = "NONE" })
+	end,
+})
+
+local yank_group = augroup("HighlightYank", {})
+autocmd("TextYankPost", {
+	group = yank_group,
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "IncSearch",
+			timeout = 40,
+		})
+	end,
+})
 
 -- Function to get diagnostics count
 function _G.diagnostics()

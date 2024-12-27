@@ -10,7 +10,11 @@ return {
 			local builtin = require("telescope.builtin")
 
 			vim.keymap.set("n", "<Space><Space>", function()
-				builtin.find_files({ hidden = true })
+				builtin.find_files({
+					hidden = true,
+					-- Exclude node_modules folder from search
+					file_ignore_patterns = { "node_modules" },
+				})
 			end, {})
 
 			vim.keymap.set("n", "<leader>fg", function()
@@ -45,12 +49,12 @@ return {
 					},
 					mappings = {
 						i = {
-							["<M-j>"] = require("telescope.actions").move_selection_next,
-							["<M-k>"] = require("telescope.actions").move_selection_previous,
+							["<C-j>"] = require("telescope.actions").move_selection_next,
+							["<C-k>"] = require("telescope.actions").move_selection_previous,
 						},
 						n = {
-							["<M-j>"] = require("telescope.actions").move_selection_next,
-							["<M-k>"] = require("telescope.actions").move_selection_previous,
+							["<C-j>"] = require("telescope.actions").move_selection_next,
+							["<C-k>"] = require("telescope.actions").move_selection_previous,
 						},
 					},
 				},
