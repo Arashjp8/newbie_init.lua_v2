@@ -42,7 +42,11 @@ return {
     vim.api.nvim_create_autocmd("FileType", {
       callback = function()
         -- NOTE: this is only for github dark theme
-        if vim.g.colors_name == "github_dark" then
+        if
+            vim.g.colors_name == "github_dark"
+            or vim.g.colors_name == "github_dark_high_contrast"
+            or vim.g.colors_name == "github_dark_dimmed"
+        then
           vim.api.nvim_set_hl(0, "@lsp.type.parameter", { fg = "#FFA657" })
           vim.api.nvim_set_hl(0, "@lsp.type.parameter.typescriptreact", { fg = "#ecf2f8" })
           -- vim.api.nvim_set_hl(0, "@lsp.type.class", { fg = "#FFA657" })

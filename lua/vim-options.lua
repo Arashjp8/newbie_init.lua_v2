@@ -21,6 +21,25 @@ vim.opt.ignorecase = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
+vim.opt.cursorline = false
+
+vim.opt.colorcolumn = "80"
+vim.cmd([[
+  augroup CustomColors
+  autocmd!
+  "autocmd ColorScheme * hi ColorColumn guibg=#16161e
+  autocmd ColorScheme * hi ColorColumn guibg=#0D0F13
+  augroup END
+]])
+
+vim.opt.guicursor = {
+  "n-v-c:block",                                 -- Normal, visual, command-line: block cursor
+  "i-ci-ve:ver25",                               -- Insert, command-line insert, visual-exclude: vertical bar cursor with 25% width
+  "r-cr:hor20",                                  -- Replace, command-line replace: horizontal bar cursor with 20% height
+  "o:hor50",                                     -- Operator-pending: horizontal bar cursor with 50% height
+  "a:blinkwait700-blinkoff400-blinkon250",       -- All modes: blinking settings
+  "sm:block-blinkwait175-blinkoff150-blinkon175", -- Showmatch: block cursor with specific blinking settings
+}
 
 ---------------------------------------------------------------------
 -- Autocommand and Augroup Setup
@@ -45,7 +64,8 @@ autocmd("ColorScheme", {
   group = custom_status_line_group,
   pattern = "*",
   callback = function()
-    vim.api.nvim_set_hl(0, "StatusLine", { fg = "#8a97b7", bg = "#16161e", bold = false })
+    -- vim.api.nvim_set_hl(0, "StatusLine", { fg = "#8a97b7", bg = "#16161e", bold = false })
+    vim.api.nvim_set_hl(0, "StatusLine", { fg = "#8a97b7", bg = "#0D0F13", bold = false })
     vim.api.nvim_set_hl(0, "StatusLineNC", { fg = "NONE", bg = "NONE" })
   end,
 })

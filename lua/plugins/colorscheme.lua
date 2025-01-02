@@ -51,6 +51,8 @@ return {
     })
     -- setup must be called before loading
     vim.cmd("colorscheme github_dark")
+    -- vim.cmd("colorscheme github_dark_high_contrast")
+    -- vim.cmd("colorscheme github_dark_dimmed")
     -- Ensure floating windows do not use transparency
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1f2335" })
     vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#565f89", bg = "#1f2335" })
@@ -66,14 +68,14 @@ return {
 --   name = "rose-pine",
 --   config = function()
 --     require("rose-pine").setup({
---       variant = "auto",  -- auto, main, moon, or dawn
+--       variant = "auto",   -- auto, main, moon, or dawn
 --       dark_variant = "main", -- main, moon, or dawn
 --       dim_inactive_windows = false,
 --       extend_background_behind_borders = true,
 --       enable = {
 --         terminal = true,
 --         legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
---         migrations = true,   -- Handle deprecated options automatically
+--         migrations = true,    -- Handle deprecated options automatically
 --       },
 --       styles = {
 --         bold = true,
@@ -131,7 +133,7 @@ return {
 --     })
 --     -- vim.cmd("colorscheme rose-pine")
 --     -- vim.cmd("colorscheme rose-pine-main")
---     -- vim.cmd("colorscheme rose-pine-moon")
+--     vim.cmd("colorscheme rose-pine-moon")
 --     -- vim.cmd("colorscheme rose-pine-dawn")
 --     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#26233A" })
 --     vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#6E6A86", bg = "#26233A" })
@@ -141,27 +143,28 @@ return {
 --     local hl_info = vim.api.nvim_get_hl(0, { id = hl_id })
 --     vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = hl_info.bg, fg = "#E0DEF4" })
 --   end,
--- },
+-- }
 
 -- return {
--- 	"folke/tokyonight.nvim",
--- 	lazy = false,
--- 	priority = 1000,
--- 	opts = {},
--- 	config = function()
--- 		require("tokyonight").setup({
--- 			on_highlights = function() end,
--- 			transparent = true,
--- 			style = "night",
--- 			styles = {
--- 				keywords = { italic = false },
--- 				comments = { italic = false },
--- 				floats = "dark",
--- 			},
--- 			on_colors = function() end,
--- 		})
--- 		vim.cmd("colorscheme tokyonight")
--- 	end,
+--   "folke/tokyonight.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   opts = {},
+--   config = function()
+--     require("tokyonight").setup({
+--       on_highlights = function() end,
+--       transparent = true,
+--       style = "night",
+--       styles = {
+--         keywords = { italic = false },
+--         comments = { italic = false },
+--         floats = "dark",
+--       },
+--       on_colors = function() end,
+--     })
+--     -- vim.cmd("colorscheme tokyonight")
+--     vim.cmd("colorscheme tokyonight-storm")
+--   end,
 -- }
 
 -- return {
