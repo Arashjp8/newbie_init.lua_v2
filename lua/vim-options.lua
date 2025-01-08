@@ -27,6 +27,7 @@ vim.cmd([[
   augroup CustomCursorLine
     autocmd!
     autocmd ColorScheme * hi CursorLine guibg=NONE
+    "autocmd ColorScheme * hi CursorLineNr guifg=#a9b1d6 guibg=NONE
   augroup END
 ]])
 
@@ -34,8 +35,8 @@ vim.opt.colorcolumn = "80"
 vim.cmd([[
   augroup CustomColors
   autocmd!
-  autocmd ColorScheme * hi ColorColumn guibg=#16161e
-  "autocmd ColorScheme * hi ColorColumn guibg=#0D0F13
+  "autocmd ColorScheme * hi ColorColumn guibg=#16161e
+  autocmd ColorScheme * hi ColorColumn guibg=#0D0F13
   augroup END
 ]])
 

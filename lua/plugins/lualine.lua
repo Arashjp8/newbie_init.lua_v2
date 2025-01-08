@@ -4,19 +4,39 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		event = "VeryLazy",
 		opts = function()
+			-- TokyoNight
+
+			-- local colors = {
+			--   bg = "#16161E",
+			--   fg = "#a9b1d6",
+			--   yellow = "#e0af68",
+			--   cyan = "#7dcfff",
+			--   darkblue = "#414868",
+			--   green = "#73daca",
+			--   orange = "#e0af68",
+			--   violet = "#bb9af7",
+			--   magenta = "#bb9af7",
+			--   blue = "#7aa2f7",
+			--   red = "#f7768e",
+			--   white = "#c0caf5",
+			-- }
+
+			-- GitHub Dark
+
 			local colors = {
-				bg = "#16161E", -- background
-				fg = "#a9b1d6", -- foreground
-				yellow = "#e0af68",
-				cyan = "#7dcfff",
-				darkblue = "#414868", -- black
-				green = "#73daca",
-				orange = "#e0af68", -- reused yellow as orange is not explicitly in Tokyo Night
-				violet = "#bb9af7", -- magenta
-				magenta = "#bb9af7",
-				blue = "#7aa2f7",
-				red = "#f7768e",
-				white = "#c0caf5", -- explicitly added white for potential use
+				bg = "#0D0F13",
+				-- bg = "#070707",
+				fg = "#8b949e",
+				yellow = "#e3b341",
+				cyan = "#2b7489",
+				darkblue = "#4d4d4d",
+				green = "#56d364",
+				orange = "#f78166",
+				violet = "#db61a2",
+				magenta = "#db61a2",
+				blue = "#6ca4f8",
+				red = "#f78166",
+				white = "#ffffff",
 			}
 
 			local conditions = {
@@ -85,18 +105,9 @@ return {
 					local filename = vim.fn.expand("%:t")
 					return filetype_icon .. " " .. filename
 				end,
-				color = { fg = nil },
+				color = { fg = colors.fg },
 				padding = { left = 0, right = 1 },
 			})
-
-			-- ins_left({
-			--   "filetype",
-			--   icons_enabled = true,
-			--   icon_only = true,
-			--   color = { fg = colors.white },
-			-- })
-			--
-			-- ins_left({ "filename", color = { fg = colors.white } })
 
 			ins_left({
 				"diagnostics",
@@ -108,6 +119,15 @@ return {
 					info = { fg = colors.cyan },
 				},
 			})
+
+			-- ins_left({
+			--   "filetype",
+			--   icons_enabled = true,
+			--   icon_only = true,
+			--   color = { fg = colors.white },
+			-- })
+			--
+			-- ins_left({ "filename", color = { fg = colors.white } })
 
 			-- ins_left({
 			--   function()
@@ -135,7 +155,10 @@ return {
 			--   cond = conditions.hide_in_width,
 			-- })
 
-			ins_right({ "location" })
+			ins_right({
+				"location",
+				color = { fg = colors.fg },
+			})
 			ins_right({ "progress", color = { fg = colors.fg } })
 
 			ins_right({
