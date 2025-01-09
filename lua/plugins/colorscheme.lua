@@ -49,7 +49,6 @@ return {
 				all = {},
 			},
 		})
-		-- setup must be called before loading
 		vim.cmd("colorscheme github_dark")
 		-- vim.cmd("colorscheme github_dark_high_contrast")
 		-- vim.cmd("colorscheme github_dark_dimmed")
@@ -57,10 +56,14 @@ return {
 		-- vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#565f89", bg = "#1f2335" })
 		-- vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#1f2335" })
 		-- vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#565f89", bg = "#1f2335" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#0D0F13" })
-		vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#565f89", bg = "#0D0F13" })
-		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#0D0F13" })
-		vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#565f89", bg = "#0D0F13" })
+		-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#0D0F13" })
+		-- vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#565f89", bg = "#0D0F13" })
+		-- vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#0D0F13" })
+		-- vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#565f89", bg = "#0D0F13" })
+		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#14171C" })
+		vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#565f89", bg = "#14171C" })
+		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#14171C" })
+		vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#565f89", bg = "#14171C" })
 		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#F78166" })
 		vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#3e4452" })
 	end,

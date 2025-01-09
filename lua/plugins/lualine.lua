@@ -24,9 +24,10 @@ return {
 			-- GitHub Dark
 
 			local colors = {
-				bg = "#0D0F13",
-				-- bg = "#070707",
-				fg = "#8b949e",
+				bg = "#14171C",
+				fg = "#9EAFC2",
+				-- bg = "#0D0F13",
+				-- fg = "#8b949e",
 				yellow = "#e3b341",
 				cyan = "#2b7489",
 				darkblue = "#4d4d4d",
@@ -103,6 +104,7 @@ return {
 					local filetype_icon, _ =
 						require("nvim-web-devicons").get_icon(vim.fn.expand("%:t"), vim.fn.expand("%:e"))
 					local filename = vim.fn.expand("%:t")
+					-- local filename = vim.fn.expand("%f")
 					return filetype_icon .. " " .. filename
 				end,
 				color = { fg = colors.fg },
@@ -113,6 +115,7 @@ return {
 				"diagnostics",
 				sources = { "nvim_diagnostic" },
 				symbols = { error = " ", warn = " ", info = " " },
+
 				diagnostics_color = {
 					error = { fg = colors.red },
 					warn = { fg = colors.yellow },
@@ -126,7 +129,7 @@ return {
 			--   icon_only = true,
 			--   color = { fg = colors.white },
 			-- })
-			--
+
 			-- ins_left({ "filename", color = { fg = colors.white } })
 
 			-- ins_left({
@@ -145,20 +148,21 @@ return {
 			-- ins_right({ "branch", icon = "", color = { fg = colors.violet, gui = "bold" } })
 
 			-- ins_right({
-			--   "diff",
-			--   symbols = { added = " ", modified = "󰝤 ", removed = " " },
-			--   diff_color = {
-			--     added = { fg = colors.green },
-			--     modified = { fg = colors.orange },
-			--     removed = { fg = colors.red },
-			--   },
-			--   cond = conditions.hide_in_width,
+			-- 	"diff",
+			-- 	symbols = { added = " ", modified = "󰝤 ", removed = " " },
+			-- 	diff_color = {
+			-- 		added = { fg = colors.green },
+			-- 		modified = { fg = colors.orange },
+			-- 		removed = { fg = colors.red },
+			-- 	},
+			-- 	cond = conditions.hide_in_width,
 			-- })
 
 			ins_right({
 				"location",
 				color = { fg = colors.fg },
 			})
+
 			ins_right({ "progress", color = { fg = colors.fg } })
 
 			ins_right({

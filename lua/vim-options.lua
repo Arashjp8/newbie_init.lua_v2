@@ -36,7 +36,8 @@ vim.cmd([[
   augroup CustomColors
   autocmd!
   "autocmd ColorScheme * hi ColorColumn guibg=#16161e
-  autocmd ColorScheme * hi ColorColumn guibg=#0D0F13
+  "autocmd ColorScheme * hi ColorColumn guibg=#0D0F13
+  autocmd ColorScheme * hi ColorColumn guibg=#14171C
   augroup END
 ]])
 
@@ -48,14 +49,14 @@ local autocmd = vim.api.nvim_create_autocmd
 
 local yank_group = augroup("HighlightYank", {})
 autocmd("TextYankPost", {
-	group = yank_group,
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank({
-			higroup = "IncSearch",
-			timeout = 40,
-		})
-	end,
+  group = yank_group,
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = "IncSearch",
+      timeout = 40,
+    })
+  end,
 })
 
 -- local custom_status_line_group = augroup("CustomStatusLine", {})
@@ -73,22 +74,22 @@ autocmd("TextYankPost", {
 -- Status Line Configuration
 ---------------------------------------------------------------------
 function _G.diagnostics()
-	local buf = vim.api.nvim_get_current_buf()
-	local diagnostics = vim.diagnostic.get(buf)
+  local buf = vim.api.nvim_get_current_buf()
+  local diagnostics = vim.diagnostic.get(buf)
 
-	local errors = #vim.tbl_filter(function(d)
-		return d.severity == vim.diagnostic.severity.ERROR
-	end, diagnostics)
-	local warnings = #vim.tbl_filter(function(d)
-		return d.severity == vim.diagnostic.severity.WARN
-	end, diagnostics)
-	local hints = #vim.tbl_filter(function(d)
-		return d.severity == vim.diagnostic.severity.HINT
-	end, diagnostics)
+  local errors = #vim.tbl_filter(function(d)
+    return d.severity == vim.diagnostic.severity.ERROR
+  end, diagnostics)
+  local warnings = #vim.tbl_filter(function(d)
+    return d.severity == vim.diagnostic.severity.WARN
+  end, diagnostics)
+  local hints = #vim.tbl_filter(function(d)
+    return d.severity == vim.diagnostic.severity.HINT
+  end, diagnostics)
 
-	return string.format("E:%d W:%d H:%d", errors, warnings, hints)
-	-- Alternatively, use symbols for the status line (for a more visual approach)
-	-- return string.format(" :%d  :%d  :%d", errors, warnings, hints)
+  return string.format("E:%d W:%d H:%d", errors, warnings, hints)
+  -- Alternatively, use symbols for the status line (for a more visual approach)
+  -- return string.format(" :%d  :%d  :%d", errors, warnings, hints)
 end
 
 -- vim.o.statusline = "%f %m %r %h%w[%{v:lua.diagnostics()}] %=%l,%c            %p%%"
@@ -96,8 +97,8 @@ vim.o.statusline = "%f %m %r %h%w%{v:lua.diagnostics()} %=%l,%c            %p%%"
 
 -- Update the statusline when diagnostics change
 vim.lsp.handlers["textDocument/publishDiagnostics"] = function(_, result, ctx, _)
-	vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx)
-	vim.cmd("redrawstatus") -- Force statusline redraw
+  vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx)
+  vim.cmd("redrawstatus") -- Force statusline redraw
 end
 
 ---------------------------------------------------------------------
