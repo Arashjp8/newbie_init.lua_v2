@@ -7,18 +7,18 @@ return {
 			-- TokyoNight
 
 			-- local colors = {
-			--   bg = "#16161E",
-			--   fg = "#a9b1d6",
-			--   yellow = "#e0af68",
-			--   cyan = "#7dcfff",
-			--   darkblue = "#414868",
-			--   green = "#73daca",
-			--   orange = "#e0af68",
-			--   violet = "#bb9af7",
-			--   magenta = "#bb9af7",
-			--   blue = "#7aa2f7",
-			--   red = "#f7768e",
-			--   white = "#c0caf5",
+			-- 	bg = "#16161E",
+			-- 	fg = "#a9b1d6",
+			-- 	yellow = "#e0af68",
+			-- 	cyan = "#7dcfff",
+			-- 	darkblue = "#414868",
+			-- 	green = "#73daca",
+			-- 	orange = "#e0af68",
+			-- 	violet = "#bb9af7",
+			-- 	magenta = "#bb9af7",
+			-- 	blue = "#7aa2f7",
+			-- 	red = "#f7768e",
+			-- 	white = "#c0caf5",
 			-- }
 
 			-- GitHub Dark
@@ -30,7 +30,7 @@ return {
 				-- fg = "#8b949e",
 				yellow = "#e3b341",
 				cyan = "#2b7489",
-				darkblue = "#4d4d4d",
+				darkblue = "#5a636e",
 				green = "#56d364",
 				orange = "#f78166",
 				violet = "#db61a2",
@@ -92,15 +92,6 @@ return {
 
 			ins_left({
 				function()
-					return "▊"
-					-- return ""
-				end,
-				color = { fg = colors.blue },
-				padding = { left = 0, right = 1 },
-			})
-
-			ins_left({
-				function()
 					local filetype_icon, _ =
 						require("nvim-web-devicons").get_icon(vim.fn.expand("%:t"), vim.fn.expand("%:e"))
 					local filename = vim.fn.expand("%:t")
@@ -108,20 +99,65 @@ return {
 					return filetype_icon .. " " .. filename
 				end,
 				color = { fg = colors.fg },
-				padding = { left = 0, right = 1 },
+				padding = { left = 1, right = 1 },
 			})
 
 			ins_left({
 				"diagnostics",
 				sources = { "nvim_diagnostic" },
 				symbols = { error = " ", warn = " ", info = " " },
-
 				diagnostics_color = {
 					error = { fg = colors.red },
 					warn = { fg = colors.yellow },
 					info = { fg = colors.cyan },
 				},
 			})
+
+			ins_left({
+				"branch",
+				icon = "",
+				color = { fg = colors.darkblue },
+				padding = { left = 1, right = 1 },
+				cond = conditions.hide_in_width,
+			})
+
+			ins_right({
+				"location",
+				color = { fg = colors.fg },
+			})
+
+			ins_right({ "progress", color = { fg = colors.fg } })
+
+			-- ins_left({
+			-- 	function()
+			-- 		return " " .. string.upper(vim.fn.mode())
+			-- 	end,
+			-- 	color = { fg = colors.blue, bg = colors.bg, gui = "bold" },
+			-- 	padding = { left = 1, right = 1 },
+			-- })
+
+			-- ins_left({
+			-- 	function()
+			-- 		return " "
+			-- 	end,
+			-- 	color = { fg = colors.bg, bg = colors.blue, gui = "bold" },
+			-- 	padding = { left = 1, right = 0 },
+			-- })
+
+			-- ins_left({
+			-- 	"mode",
+			-- 	color = { fg = colors.bg, bg = colors.blue, gui = "bold" },
+			-- 	padding = { left = 0, right = 0 },
+			-- })
+
+			-- ins_left({
+			-- 	function()
+			-- 		-- return "▊"
+			-- 		return ""
+			-- 	end,
+			-- 	color = { fg = colors.blue },
+			-- 	padding = { left = 0, right = 0 },
+			-- })
 
 			-- ins_left({
 			--   "filetype",
@@ -145,8 +181,6 @@ return {
 			--   color = { fg = colors.green, gui = "bold" },
 			-- })
 
-			-- ins_right({ "branch", icon = "", color = { fg = colors.violet, gui = "bold" } })
-
 			-- ins_right({
 			-- 	"diff",
 			-- 	symbols = { added = " ", modified = "󰝤 ", removed = " " },
@@ -158,21 +192,22 @@ return {
 			-- 	cond = conditions.hide_in_width,
 			-- })
 
-			ins_right({
-				"location",
-				color = { fg = colors.fg },
-			})
+			-- ins_right({
+			-- 	"branch",
+			-- 	icon = "",
+			-- 	color = { fg = colors.darkblue, gui = "bold" },
+			-- 	padding = { left = 0, right = 1 },
+			-- 	cond = conditions.hide_in_width,
+			-- })
 
-			ins_right({ "progress", color = { fg = colors.fg } })
-
-			ins_right({
-				function()
-					return "▊"
-					-- return ""
-				end,
-				color = { fg = colors.blue },
-				padding = { left = 0 },
-			})
+			-- ins_right({
+			-- 	function()
+			-- 		return "▊"
+			-- 		-- return ""
+			-- 	end,
+			-- 	color = { fg = colors.blue },
+			-- 	padding = { left = 0 },
+			-- })
 
 			return config
 		end,
