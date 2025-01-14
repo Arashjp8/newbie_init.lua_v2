@@ -86,25 +86,57 @@ return {
         table.insert(config.sections.lualine_c, component)
       end
 
+      local function ins_center(component)
+        -- Insert the `%=` separator if it's not already there
+        local c_section = config.sections.lualine_c
+        local last_item = c_section[#c_section]
+        if not last_item or last_item[1] ~= "%=" then
+          table.insert(c_section, { "%=" })
+        end
+
+        -- Add the component after `%=`
+        table.insert(c_section, component)
+      end
+
       local function ins_right(component)
         table.insert(config.sections.lualine_x, component)
       end
 
+      -- ins_left({
+      -- 	"mode",
+      -- 	color = { fg = colors.foreground, bg = colors.background },
+      -- 	padding = { left = 1, right = 0 },
+      -- })
+
       ins_left({
         function()
+          local name = vim.api.nvim_buf_get_name(0)
+
+          if not name or name == "" then
+            return "[No Name]"
+          end
+
           -- Get the Lualine config to check if icons are enabled
           local icons_enabled = require("lualine").get_config().options.icons_enabled
 
-          -- Get the file icon and name
-          local filetype_icon, _ =
-              require("nvim-web-devicons").get_icon(vim.fn.expand("%:t"), vim.fn.expand("%:e"))
-          local filename = vim.fn.expand("%:t")
+          -- Get the file name and extension
+          local file_name, file_ext = vim.fn.expand("%:t"), vim.fn.expand("%:e")
 
-          -- Return filename with or without icon based on icons_enabled
+          -- Get the full path and modify it as desired
+          local full_path = vim.api.nvim_buf_get_name(0)
+          if not full_path or full_path == "" then
+            return "[No Name]"
+          end
+
+          -- Use fnamemodify for path modification (replace ":." with any modifier you prefer)
+          local shortened_path = vim.fn.fnamemodify(full_path, ":.")
+          local icon = require("nvim-web-devicons").get_icon(file_name, file_ext, { default = true })
+
+          -- Return the formatted path with or without the icon based on the config
           if icons_enabled then
-            return (filetype_icon or "") .. " " .. filename
+            return (icon or "") .. " " .. shortened_path
           else
-            return filename
+            return shortened_path
           end
         end,
         color = { fg = colors.fg },
@@ -114,8 +146,9 @@ return {
       ins_left({
         "diagnostics",
         sources = { "nvim_diagnostic" },
-        symbols = { error = " ", warn = " ", info = " " },
-        -- symbols = { error = "E:", warn = "W:", info = "H:" },
+        icons_enabled = false,
+        -- symbols = { error = " ", warn = " ", info = " " },
+        symbols = { error = "E:", warn = "W:", info = "H:" },
         diagnostics_color = {
           error = { fg = colors.red },
           warn = { fg = colors.yellow },
@@ -152,12 +185,6 @@ return {
       -- 	end,
       -- 	color = { fg = colors.bg, bg = colors.blue, gui = "bold" },
       -- 	padding = { left = 1, right = 0 },
-      -- })
-
-      -- ins_left({
-      -- 	"mode",
-      -- 	color = { fg = colors.bg, bg = colors.blue, gui = "bold" },
-      -- 	padding = { left = 0, right = 0 },
       -- })
 
       -- ins_left({

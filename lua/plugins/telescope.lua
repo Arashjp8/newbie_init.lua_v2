@@ -38,6 +38,11 @@ return {
 			vim.keymap.set("n", "<leader>fh", function()
 				builtin.help_tags()
 			end)
+
+			-- Current Buffer Fuzzy Find
+			vim.keymap.set("n", "<leader>f/", function()
+				builtin.current_buffer_fuzzy_find()
+			end)
 		end,
 	},
 	{

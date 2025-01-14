@@ -21,25 +21,8 @@ vim.opt.ignorecase = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
-
 vim.opt.cursorline = true
-vim.cmd([[
-  augroup CustomCursorLine
-    autocmd!
-    autocmd ColorScheme * hi CursorLine guibg=NONE
-    "autocmd ColorScheme * hi CursorLineNr guifg=#a9b1d6 guibg=NONE
-  augroup END
-]])
-
 vim.opt.colorcolumn = "80"
-vim.cmd([[
-  augroup CustomColors
-  autocmd!
-  "autocmd ColorScheme * hi ColorColumn guibg=#16161e
-  "autocmd ColorScheme * hi ColorColumn guibg=#0D0F13
-  autocmd ColorScheme * hi ColorColumn guibg=#14171C
-  augroup END
-]])
 
 ---------------------------------------------------------------------
 -- Autocommand and Augroup Setup
@@ -49,14 +32,14 @@ local autocmd = vim.api.nvim_create_autocmd
 
 local yank_group = augroup("HighlightYank", {})
 autocmd("TextYankPost", {
-  group = yank_group,
-  pattern = "*",
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = "IncSearch",
-      timeout = 40,
-    })
-  end,
+	group = yank_group,
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "IncSearch",
+			timeout = 40,
+		})
+	end,
 })
 
 ---------------------------------------------------------------------
