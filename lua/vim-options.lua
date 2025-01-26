@@ -1,3 +1,5 @@
+-- NOTE: temp workaround
+vim.hl = vim.highlight
 ---------------------------------------------------------------------
 -- Basic Settings
 ---------------------------------------------------------------------
@@ -22,7 +24,7 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
 vim.opt.cursorline = true
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 
 ---------------------------------------------------------------------
 -- Autocommand and Augroup Setup
