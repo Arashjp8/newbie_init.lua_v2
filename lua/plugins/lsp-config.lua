@@ -30,6 +30,7 @@ return {
 					"lua_ls",
 					"markdown_oxide",
 					"pylsp",
+					"gopls",
 				},
 			})
 		end,
@@ -68,7 +69,7 @@ return {
 			---------------------------------------------------------------------
 			-- Organize Imports Command (TypeScript)
 			---------------------------------------------------------------------
-			local function organize_imports()
+			local function organize_ts_imports()
 				local params = {
 					command = "_typescript.organizeImports",
 					arguments = { vim.api.nvim_buf_get_name(0) },
@@ -90,7 +91,7 @@ return {
 				capabilities = capabilities,
 				commands = {
 					OrganizeImports = {
-						organize_imports,
+						organize_ts_imports,
 						description = "Organize Imports",
 					},
 				},
@@ -98,6 +99,25 @@ return {
 			lspconfig.clangd.setup({ capabilities = capabilities })
 			lspconfig.bashls.setup({ capabilities = capabilities })
 			lspconfig.pylsp.setup({ capabilities = capabilities })
+			lspconfig.gopls.setup({
+				cmd = { "gopls" },
+				filetypes = { "go", "gomod", "gowork", "gotmpl" },
+				settings = {
+					gopls = {
+						completeUnimported = true,
+						usePlaceholders = true,
+						analyses = {
+							unusedparams = true,
+						},
+					},
+					env = {
+						GOEXPERIMENT = "rangefunc",
+					},
+					formatting = {
+						gofumpt = true,
+					},
+				},
+			})
 
 			---------------------------------------------------------------------
 			-- Keybindings for LSP Features
