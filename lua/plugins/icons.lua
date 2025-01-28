@@ -1,6 +1,6 @@
 return {
-	"nvim-web-devicons",
-	config = function()
-		require("nvim-web-devicons").setup({})
-	end,
+  "nvim-web-devicons",
+  config = function()
+    require("nvim-web-devicons").setup({})
+  end,
 }
