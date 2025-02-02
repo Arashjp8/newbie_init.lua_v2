@@ -1,33 +1,6 @@
--- return {
--- 	"Mofiqul/vscode.nvim",
--- 	priority = 1000,
--- 	config = function()
--- 		require("vscode").setup({
--- 			transparent = false,
--- 		})
--- 		vim.cmd([[
---       augroup CustomColors
---       autocmd!
---       autocmd ColorScheme * hi ColorColumn guibg=#181818
---       augroup END
---     ]])
--- 		vim.cmd([[
---         augroup CustomCursorLine
---         autocmd!
---         autocmd ColorScheme * hi CursorLine guibg=NONE
---         augroup END
---     ]])
--- 		vim.cmd.colorscheme("vscode")
--- 		vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE", fg = "#FFFFFF" })
--- 		vim.api.nvim_set_hl(0, "CursorColumn", { bg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE", fg = "#555555" })
--- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", fg = "NONE" })
--- 	end,
--- }
-
 return {
 	"catppuccin/nvim",
-	priority = 150,
+	priority = 1000,
 	name = "catppuccin",
 	config = function()
 		require("catppuccin").setup({
@@ -98,7 +71,7 @@ return {
 			integration_default = false,
 			no_bold = true,
 			no_italic = true,
-			no_underline = true,
+			no_underline = false,
 			integrations = {
 				barbecue = { dim_dirname = true, bold_basename = true, dim_context = false, alt_background = false },
 				cmp = true,
@@ -166,8 +139,9 @@ return {
 						Float = { fg = colors.mauve },
 						PreProc = { fg = colors.mauve },
 						PreCondit = { fg = colors.mauve },
-						Include = { fg = colors.mauve },
 						Define = { fg = colors.mauve },
+						-- the default one for Include was mauve
+						Include = { fg = colors.red },
 						Conditional = { fg = colors.red },
 						Repeat = { fg = colors.red },
 						Keyword = { fg = colors.red },
@@ -231,7 +205,7 @@ return {
 						TSProperty = { fg = colors.blue },
 						TSPunctBracket = { fg = colors.text },
 						TSPunctDelimiter = { link = "Delimiter" },
-						TSPunctSpecial = { fg = colors.blue },
+						TSPunctSpecial = { fg = colors.text },
 						TSRepeat = { fg = colors.red },
 						TSStorageClass = { fg = colors.peach },
 						TSStorageClassLifetime = { fg = colors.peach },
@@ -372,6 +346,12 @@ return {
 			},
 		})
 		vim.cmd([[
+      augroup CustomColors
+      autocmd!
+      autocmd ColorScheme * hi ColorColumn guibg=#191B1C
+      augroup END
+    ]])
+		vim.cmd([[
         augroup CustomCursorLine
         autocmd!
         autocmd ColorScheme * hi CursorLine guibg=NONE
@@ -382,10 +362,96 @@ return {
 		vim.api.nvim_set_hl(0, "NavicText", { default = true, bg = "none", fg = "#eedaad" })
 		vim.api.nvim_set_hl(0, "NavicSeparator", { default = true, bg = "none", fg = "#eedaad" })
 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#191B1C" })
-		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#191B1C" })
+		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#191B1C", fg = "#4d4d4d" })
 		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#191B1C" })
 	end,
 }
+
+-- return {
+-- 	"sainnhe/gruvbox-material",
+-- 	enabled = true,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		vim.g.gruvbox_material_transparent_background = 0
+-- 		vim.g.gruvbox_material_foreground = "mix"
+-- 		vim.g.gruvbox_material_background = "hard"
+-- 		vim.g.gruvbox_material_ui_contrast = "high"
+-- 		vim.g.gruvbox_material_float_style = "dim"
+-- 		vim.g.gruvbox_material_statusline_style = "material"
+-- 		vim.g.gruvbox_material_cursor = "auto"
+-- 		vim.cmd([[
+--         augroup CustomCursorLine
+--         autocmd!
+--         autocmd ColorScheme * hi CursorLine guibg=NONE
+--         augroup END
+--     ]])
+-- 		vim.cmd.colorscheme("gruvbox-material")
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#191B1C" })
+-- 		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "#191B1C", fg = "#4d4d4d" })
+-- 		vim.api.nvim_set_hl(0, "TSPunctBracket", { fg = "#eedaad" })
+-- 	end,
+-- }
+
+-- return {
+-- 	"ellisonleao/gruvbox.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("gruvbox").setup({
+-- 			terminal_colors = true,
+-- 			undercurl = false,
+-- 			underline = false,
+-- 			bold = false,
+-- 			italic = {
+-- 				strings = false,
+-- 				emphasis = false,
+-- 				comments = false,
+-- 				operators = false,
+-- 				folds = false,
+-- 			},
+-- 			strikethrough = true,
+-- 			invert_selection = false,
+-- 			invert_signs = false,
+-- 			invert_tabline = false,
+-- 			invert_intend_guides = false,
+-- 			inverse = true,
+-- 			contrast = "hard",
+-- 			palette_overrides = {},
+-- 			overrides = {
+-- 				SignColumn = { bg = "#1C2021" },
+-- 			},
+-- 			dim_inactive = false,
+-- 			transparent_mode = false,
+-- 		})
+-- 		vim.cmd.colorscheme("gruvbox")
+-- 	end,
+-- }
+
+-- return {
+-- 	"Mofiqul/vscode.nvim",
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("vscode").setup({
+-- 			transparent = false,
+-- 		})
+-- 		vim.cmd([[
+--       augroup CustomColors
+--       autocmd!
+--       autocmd ColorScheme * hi ColorColumn guibg=#181818
+--       augroup END
+--     ]])
+-- 		vim.cmd([[
+--         augroup CustomCursorLine
+--         autocmd!
+--         autocmd ColorScheme * hi CursorLine guibg=NONE
+--         augroup END
+--     ]])
+-- 		vim.cmd.colorscheme("vscode")
+-- 		vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "NONE", fg = "#FFFFFF" })
+-- 		vim.api.nvim_set_hl(0, "CursorColumn", { bg = "NONE" })
+-- 		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE", fg = "#555555" })
+-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", fg = "NONE" })
+-- 	end,
+-- }
 
 -- return {
 -- 	"projekt0n/github-nvim-theme",
@@ -400,7 +466,7 @@ return {
 -- 				compile_file_suffix = "_compiled", -- Compiled file suffix
 -- 				hide_end_of_buffer = true, -- Hide the '~' character at the end of the buffer for a cleaner look
 -- 				hide_nc_statusline = true, -- Override the underline style for non-active statuslines
--- 				transparent = true, -- Disable setting bg (make neovim's background transparent)
+-- 				transparent = false, -- Disable setting bg (make neovim's background transparent)
 -- 				terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in :terminal
 -- 				dim_inactive = false, -- Non focused panes set to alternative background
 -- 				module_default = true, -- Default enable value for modules

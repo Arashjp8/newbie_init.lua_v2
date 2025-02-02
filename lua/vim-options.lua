@@ -4,9 +4,9 @@ vim.hl = vim.highlight
 -- Basic Settings
 ---------------------------------------------------------------------
 vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+vim.cmd("set tabstop=4")
+vim.cmd("set softtabstop=4")
+vim.cmd("set shiftwidth=4")
 vim.cmd("set number relativenumber")
 vim.cmd("set termbidi")
 
@@ -34,14 +34,14 @@ local autocmd = vim.api.nvim_create_autocmd
 
 local yank_group = augroup("HighlightYank", {})
 autocmd("TextYankPost", {
-	group = yank_group,
-	pattern = "*",
-	callback = function()
-		vim.highlight.on_yank({
-			higroup = "IncSearch",
-			timeout = 40,
-		})
-	end,
+    group = yank_group,
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({
+            higroup = "IncSearch",
+            timeout = 40,
+        })
+    end,
 })
 
 ---------------------------------------------------------------------

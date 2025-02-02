@@ -24,7 +24,9 @@ return {
 					extra_args = { "--max-len=80", "--base-formatter=gofumpt" },
 				}),
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.prettier,
+				null_ls.builtins.formatting.prettier.with({
+					extra_args = { "--tab-width", "4" },
+				}),
 				-- null_ls.builtins.formatting.eslint_d,
 				require("none-ls.diagnostics.eslint"),
 			},
