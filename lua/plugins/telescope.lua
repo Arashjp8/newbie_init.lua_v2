@@ -14,15 +14,19 @@ return {
 			-- Telescope Builtin Keybindings
 			---------------------------------------------------------------------
 			local builtin = require("telescope.builtin")
+			-- local themes = require("telescope.themes")
 
 			-- Find files (ignoring node_modules)
 			vim.keymap.set("n", "<Space><Space>", function()
 				builtin.find_files({
 					hidden = true,
 					-- Exclude node_modules folder from search
-					file_ignore_patterns = { "node_modules" },
+					file_ignore_patterns = { "node_modules/.*" },
 				})
 			end, {})
+
+			-- Telescope itself
+			vim.keymap.set("n", "<leader>t", ":Telescope <CR>", {})
 
 			-- Live Grep
 			vim.keymap.set("n", "<leader>fg", function()

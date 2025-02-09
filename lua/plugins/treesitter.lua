@@ -28,6 +28,7 @@ return {
 				"json",
 				"bash",
 				"sql",
+				"go",
 			},
 			highlight = {
 				enable = true,
