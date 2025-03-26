@@ -87,7 +87,19 @@ return {
 			lspconfig.cssls.setup({ capabilities = capabilities })
 			lspconfig.cssmodules_ls.setup({ capabilities = capabilities })
 			lspconfig.css_variables.setup({ capabilities = capabilities })
-			lspconfig.tailwindcss.setup({ capabilities = capabilities })
+			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+				settings = {
+					tailwindCSS = {
+						experimental = {
+							classRegex = {
+								"tw`([^`]*)",
+								{ "tw.style%(([^)]*)%)", "'([^']*)'" },
+							},
+						},
+					},
+				},
+			})
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 				commands = {

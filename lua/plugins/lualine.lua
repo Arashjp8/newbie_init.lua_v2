@@ -6,6 +6,24 @@ return {
         },
         event = "VeryLazy",
         opts = function()
+            -- -- Gruvbuddy
+            -- local colors = {
+            -- 	bg = "#191B1C",
+            -- 	fg = "",
+            -- 	red = "#CC6666",
+            -- 	green = "#99cc99",
+            -- 	blue = "#81a2be",
+            -- 	lightblue = "#8abeb7",
+            -- 	yellow = "#FCE094",
+            -- 	pink = "#D8A657",
+            -- 	violet = "#b294bb",
+            -- 	cyan = "#8abeb7",
+            -- 	magenta = "#8e6fbd",
+            -- 	white = "#f2e5bc",
+            -- 	orange = "#de935f",
+            -- 	darkblue = "#666666",
+            -- }
+
             -- Gruvbox Material
 
             local colors = {
@@ -29,22 +47,22 @@ return {
             -- VS Code
 
             -- local colors = {
-            -- 	-- bg = "#262626",
-            -- 	bg = "#181818",
-            -- 	bg2 = "#373737",
-            -- 	fg = "#bbbbbb",
-            -- 	red = "#f44747",
-            -- 	green = "#4EC9B0",
-            -- 	blue = "#0a7aca",
-            -- 	lightblue = "#5CB6F8",
-            -- 	yellow = "#DCDCAA",
-            -- 	pink = "#DDB6F2",
-            -- 	violet = "#DDB6F2", -- Matching pink as violet isn't explicitly defined
-            -- 	cyan = "#5CB6F8", -- Closest match to light blue
-            -- 	magenta = "#DDB6F2", -- Matching pink
-            -- 	white = "#ffffff", -- Same as fg
-            -- 	orange = "#ffaf00", -- Same as yellow
-            -- 	darkblue = "#666666", -- bg2 for a darker contrast
+            --     -- bg = "#262626",
+            --     bg = "#181818",
+            --     bg2 = "#373737",
+            --     fg = "#bbbbbb",
+            --     red = "#f44747",
+            --     green = "#4EC9B0",
+            --     blue = "#0a7aca",
+            --     lightblue = "#5CB6F8",
+            --     yellow = "#DCDCAA",
+            --     pink = "#DDB6F2",
+            --     violet = "#DDB6F2", -- Matching pink as violet isn't explicitly defined
+            --     cyan = "#5CB6F8", -- Closest match to light blue
+            --     magenta = "#DDB6F2", -- Matching pink
+            --     white = "#ffffff", -- Same as fg
+            --     orange = "#ffaf00", -- Same as yellow
+            --     darkblue = "#666666", -- bg2 for a darker contrast
             -- }
 
             -- TokyoNight
