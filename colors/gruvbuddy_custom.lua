@@ -8,7 +8,8 @@ local g = colorbuddy.groups
 local s = colorbuddy.styles
 
 Color.new("white", "#f2e5bc")
-Color.new("superwhite", "#dddddd")
+Color.new("superwhite", "#cccccc")
+-- Color.new("superwhite", "#dddddd")
 Color.new("red", "#cc6666")
 Color.new("pink", "#D8A657")
 Color.new("green", "#99cc99")
@@ -27,6 +28,10 @@ Color.new("turquoise", "#698b69")
 
 Color.new("selection", "#3C3F45")
 Color.new("columnNr", "#595959")
+
+Color.new("comment", "#797979")
+Group.new("@comment", c.comment, nil, s.italic)
+Group.new("Comment", c.comment, nil, s.italic)
 
 local background_string = "#1c1e20"
 local float_background_string = "#141617"
@@ -50,6 +55,8 @@ vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = float_background_string, fg 
 
 Group.new("LineNr", c.columnNr, nil)
 Group.new("CursorLineNr", c.columnNr, nil)
+
+-- Group.new("@tag.builtin.tsx", c.blue, nil, s.bold)
 
 Group.new("@type", c.orange, nil, s.none)
 

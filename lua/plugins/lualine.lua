@@ -6,6 +6,22 @@ return {
 		},
 		event = "VeryLazy",
 		opts = function()
+			-- tairiki_dimmed
+			local colors = {
+				bg = "#151515",
+				fg = "#afb2b0",
+				yellow = "#d9bf89",
+				cyan = "#9bb0ac",
+				darkblue = "#666666",
+				green = "#b3ba7e",
+				orange = "#93a8b8",
+				violet = "#b19db8",
+				magenta = "#b19db8",
+				blue = "#93a8b8",
+				red = "#c37d7c",
+				white = "#afb2b0",
+			}
+
 			-- -- catppuccin
 			-- local colors = {
 			-- 	-- bg = "#1e1e2e",
@@ -26,49 +42,51 @@ return {
 			-- Gruvbuddy
 
 			-- local colors = {
-			-- 	bg = "#191B1C",
-			-- 	fg = "",
-			-- 	red = "#CC6666",
-			-- 	green = "#99cc99",
-			-- 	blue = "#81a2be",
-			-- 	lightblue = "#8abeb7",
-			-- 	yellow = "#FCE094",
-			-- 	pink = "#D8A657",
-			-- 	violet = "#b294bb",
-			-- 	cyan = "#8abeb7",
-			-- 	magenta = "#8e6fbd",
-			-- 	white = "#f2e5bc",
-			-- 	orange = "#de935f",
-			-- 	darkblue = "#666666",
+			--     bg = "#191B1C",
+			--     fg = "#dddddd",
+			--     red = "#CC6666",
+			--     green = "#B3F6C0",
+			--     blue = "#81a2be",
+			--     lightblue = "#8abeb7",
+			--     yellow = "#FCE094",
+			--     pink = "#D8A657",
+			--     violet = "#b294bb",
+			--     cyan = "#8abeb7",
+			--     magenta = "#8e6fbd",
+			--     white = "#f2e5bc",
+			--     orange = "#8CF8F7",
+			--     darkblue = "#666666",
 			-- }
 
-			-- Gruvbox Material
-
-			local colors = {
-				bg = "#191B1C", -- base
-				bg2 = "#292929", -- surface0
-				fg = "#ebdbb2", -- text
-				red = "#ea6962", -- red
-				green = "#a9b665", -- green
-				blue = "#7daea3", -- blue
-				lightblue = "#89b482", -- sky
-				yellow = "#d8a657", -- yellow
-				pink = "#d3869b", -- pink
-				violet = "#d3869b", -- mauve
-				cyan = "#89b482", -- teal (closest to cyan)
-				magenta = "#d3869b", -- pink (used as magenta)
-				white = "#ebdbb2", -- text
-				orange = "#e78a4e", -- peach
-				darkblue = "#666666", -- surface1
-			}
+			---- Gruvbox Material
+			-- local colors = {
+			--     bg = "#191B1C", -- base
+			--     bg2 = "#292929", -- surface0
+			--     fg = "#ebdbb2", -- text
+			--     red = "#ea6962", -- red
+			--     green = "#a9b665", -- green
+			--     blue = "#7daea3", -- blue
+			--     lightblue = "#89b482", -- sky
+			--     yellow = "#d8a657", -- yellow
+			--     pink = "#d3869b", -- pink
+			--     violet = "#d3869b", -- mauve
+			--     cyan = "#89b482", -- teal (closest to cyan)
+			--     magenta = "#d3869b", -- pink (used as magenta)
+			--     white = "#ebdbb2", -- text
+			--     orange = "#e78a4e", -- peach
+			--     darkblue = "#666666", -- surface1
+			-- }
 
 			-- VS Code
 
 			-- local colors = {
 			-- 	-- bg = "#262626",
-			-- 	bg = "#181818",
+			-- 	-- set-option -g status-style 'bg=#191B1C fg=#dddddd'
+			-- 	bg = "#191B1C",
+			-- 	fg = "#dddddd",
 			-- 	bg2 = "#373737",
-			-- 	fg = "#bbbbbb",
+			-- 	-- bg = "#181818",
+			-- 	-- fg = "#bbbbbb",
 			-- 	red = "#f44747",
 			-- 	green = "#6A9955",
 			-- 	blue = "#0a7aca",
@@ -106,20 +124,20 @@ return {
 			-- GitHub Dark
 
 			-- local colors = {
-			--     bg = "#14171C",
-			--     fg = "#9EAFC2",
-			--     -- bg = "#0D0F13",
-			--     -- fg = "#8b949e",
-			--     yellow = "#e3b341",
-			--     cyan = "#2b7489",
-			--     darkblue = "#5a636e",
-			--     green = "#56d364",
-			--     orange = "#f78166",
-			--     violet = "#db61a2",
-			--     magenta = "#db61a2",
-			--     blue = "#6ca4f8",
-			--     red = "#f78166",
-			--     white = "#ffffff",
+			-- 	bg = "#14171C",
+			-- 	fg = "#9EAFC2",
+			-- 	-- bg = "#0D0F13",
+			-- 	-- fg = "#8b949e",
+			-- 	yellow = "#e3b341",
+			-- 	cyan = "#2b7489",
+			-- 	darkblue = "#5a636e",
+			-- 	green = "#56d364",
+			-- 	orange = "#f78166",
+			-- 	violet = "#db61a2",
+			-- 	magenta = "#db61a2",
+			-- 	blue = "#6ca4f8",
+			-- 	red = "#f78166",
+			-- 	white = "#ffffff",
 			-- }
 
 			local conditions = {
