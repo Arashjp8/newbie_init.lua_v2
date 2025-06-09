@@ -367,63 +367,92 @@
 -- 	end,
 -- }
 
-return {
-	"deparr/tairiki.nvim",
-	lazy = false,
-	priority = 1000, -- recommended if you use tairiki as your default theme
-	config = function()
-		require("tairiki").setup({
-			palette = "dimmed", -- main palette, available options: dark, light, dimmed, tomorrow, light_legacy
-			default_dark = "dimmed",
-			default_light = "light",
-			transparent = false, -- don't set background colors
-			terminal = false, -- override nvim terminal colors
-			end_of_buffer = false, -- show end of buffer filler lines (tildes)
-			visual_bold = false, -- bolden visual selections
-			cmp_itemkind_reverse = false, -- reverse fg/bg on nvim-cmp item kinds
-			diagnostics = {
-				darker = false, -- darken diagnostic virtual text
-				background = true, -- add background to diagnostic virtual text
-				undercurl = false, -- use undercurls for inline diagnostics
-			},
-			-- style for different syntactic tokens
-			-- see :help nvim_set_hl() for available keys
-			code_style = {
-				comments = { italic = true },
-				conditionals = {},
-				keywords = {},
-				functions = {},
-				strings = {},
-				variables = {},
-				parameters = {},
-				types = {},
-			},
-			-- lualine theme config
-			lualine = {
-				transparent = true, -- remove background from center section
-			},
-			-- which plugins to enable
-			plugins = {
-				all = false, -- enable all supported plugins
-				none = false, -- ONLY set groups listed in :help highlight-groups (see lua/tairiki/groups/neovim.lua). Manually enabled plugins will also be ignored
-				auto = false, -- auto detect installed plugins, currently lazy.nvim only
-				-- or enable/disable plugins manually
-				-- see lua/tairiki/groups/init.lua for the full list of available plugins
-				-- either the key or value from the M.plugins table can be used as the key here
-				--
-				-- setting a specific plugin manually overrides `all` and `auto`
-				treesitter = true,
-				semantic_tokens = true,
-			},
-			-- optional function to modify or add colors to the palette
-			-- palette definitions are in lua/tairiki/palette
-			colors = function(colors, opts) end,
-			-- optional function to override highlight groups
-			highlights = function(groups, colors, opts) end,
-		})
-		vim.cmd.colorscheme("tairiki")
-	end,
-}
+-- return {
+-- 	"nickkadutskyi/jb.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("jb").setup({
+-- 			transparent = false,
+-- 			disable_hl_args = {
+-- 				bold = false,
+-- 				italic = false,
+-- 			},
+-- 			snacks = {
+-- 				explorer = {
+-- 					enabled = false,
+-- 				},
+-- 			},
+-- 		})
+-- 		vim.cmd("colorscheme jb")
+-- 		vim.api.nvim_set_hl(0, "MsgArea", { bg = "#1E1F21" })
+-- 	end,
+-- }
+
+-- return {
+-- 	"deparr/tairiki.nvim",
+-- 	lazy = false,
+-- 	priority = 1000, -- recommended if you use tairiki as your default theme
+-- 	config = function()
+-- 		require("tairiki").setup({
+-- 			palette = "dimmed", -- main palette, available options: dark, light, dimmed, tomorrow, light_legacy
+-- 			default_dark = "dimmed",
+-- 			default_light = "light",
+-- 			transparent = false, -- don't set background colors
+-- 			terminal = false, -- override nvim terminal colors
+-- 			end_of_buffer = false, -- show end of buffer filler lines (tildes)
+-- 			visual_bold = false, -- bolden visual selections
+-- 			cmp_itemkind_reverse = false, -- reverse fg/bg on nvim-cmp item kinds
+-- 			diagnostics = {
+-- 				darker = false, -- darken diagnostic virtual text
+-- 				background = true, -- add background to diagnostic virtual text
+-- 				undercurl = false, -- use undercurls for inline diagnostics
+-- 			},
+-- 			-- style for different syntactic tokens
+-- 			-- see :help nvim_set_hl() for available keys
+-- 			code_style = {
+-- 				comments = { italic = true },
+-- 				conditionals = {},
+-- 				keywords = {},
+-- 				functions = {},
+-- 				strings = {},
+-- 				variables = {},
+-- 				parameters = {},
+-- 				types = {},
+-- 			},
+-- 			-- lualine theme config
+-- 			lualine = {
+-- 				transparent = true, -- remove background from center section
+-- 			},
+-- 			-- which plugins to enable
+-- 			plugins = {
+-- 				all = false, -- enable all supported plugins
+-- 				none = false, -- ONLY set groups listed in :help highlight-groups (see lua/tairiki/groups/neovim.lua). Manually enabled plugins will also be ignored
+-- 				auto = false, -- auto detect installed plugins, currently lazy.nvim only
+-- 				-- or enable/disable plugins manually
+-- 				-- see lua/tairiki/groups/init.lua for the full list of available plugins
+-- 				-- either the key or value from the M.plugins table can be used as the key here
+-- 				--
+-- 				-- setting a specific plugin manually overrides `all` and `auto`
+-- 				treesitter = true,
+-- 				semantic_tokens = true,
+-- 			},
+-- 			-- optional function to modify or add colors to the palette
+-- 			-- palette definitions are in lua/tairiki/palette
+-- 			colors = function(colors, opts) end,
+-- 			-- optional function to override highlight groups
+-- 			highlights = function(groups, colors, opts)
+-- 				local my_cyan = "#9bc0ac"
+-- 				local my_orange = "#d99667"
+-- 				local my_yellow = "#d9bf89"
+-- 				groups["@tag.tsx"] = { fg = my_yellow }
+-- 				-- groups["@tag.attribute"] = { fg = my_orange }
+-- 				return groups
+-- 			end,
+-- 		})
+-- 		vim.cmd.colorscheme("tairiki")
+-- 	end,
+-- }
 
 -- return {
 -- 	lazy = false,
@@ -504,6 +533,30 @@ return {
 -- 	end,
 -- }
 
+return {
+    "gmr458/vscode_modern_theme.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require("vscode_modern").setup({
+            cursorline = true,
+            transparent_background = true,
+            nvim_tree_darker = true,
+        })
+        vim.cmd.colorscheme("vscode_modern")
+        vim.api.nvim_set_hl(0, "@lsp.typemod.variable.readonly.typescriptreact", { bg = "NONE", fg = "#cccccc" })
+        vim.api.nvim_set_hl(0, "@lsp.typemod.variable.local.typescriptreact", { bg = "NONE", fg = "#cccccc" })
+        vim.api.nvim_set_hl(0, "@lsp.type.variable.typescriptreact", { bg = "NONE", fg = "#cccccc" })
+        vim.api.nvim_set_hl(0, "@lsp.typemod.variable.local.typescript", { bg = "NONE", fg = "#cccccc" })
+        vim.api.nvim_set_hl(0, "@lsp.type.variable.typescript", { bg = "NONE", fg = "#cccccc" })
+        vim.api.nvim_set_hl(0, "@variable", { bg = "NONE", fg = "#cccccc" })
+        vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#90CAE9", bold = true })
+        local bgColor = "#1D1F21"
+        vim.api.nvim_set_hl(0, "Normal", { bg = bgColor })
+        vim.api.nvim_set_hl(0, "NormalNC", { bg = bgColor })
+    end,
+}
+
 -- return {
 -- 	"Mofiqul/vscode.nvim",
 -- 	priority = 1000,
@@ -528,60 +581,64 @@ return {
 -- 		vim.api.nvim_set_hl(0, "CursorColumn", { bg = "NONE" })
 -- 		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE", fg = "#555555" })
 -- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE", fg = "NONE" })
+-- 		vim.api.nvim_set_hl(0, "@variable", { bg = "NONE", fg = "#cccccc" })
+-- 		vim.api.nvim_set_hl(0, "@lsp.typemod.variable.readonly.typescriptreact", { bg = "NONE", fg = "#cccccc" })
 -- 	end,
 -- }
 
 -- return {
--- 	"projekt0n/github-nvim-theme",
--- 	name = "github-theme",
--- 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
--- 	priority = 1000, -- make sure to load this before all the other start plugins
--- 	config = function()
--- 		-- Default options
--- 		require("github-theme").setup({
--- 			options = {
--- 				-- Compiled file's destination location compile_path = vim.fn.stdpath("cache") .. "/github-theme",
--- 				compile_file_suffix = "_compiled", -- Compiled file suffix
--- 				hide_end_of_buffer = true, -- Hide the '~' character at the end of the buffer for a cleaner look
--- 				hide_nc_statusline = true, -- Override the underline style for non-active statuslines
--- 				transparent = true, -- Disable setting bg (make neovim's background transparent)
--- 				terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in :terminal
--- 				dim_inactive = false, -- Non focused panes set to alternative background
--- 				module_default = true, -- Default enable value for modules
--- 				styles = {
--- 					comments = "NONE",
--- 					functions = "NONE",
--- 					keywords = "NONE",
--- 					variables = "NONE",
--- 					conditionals = "NONE",
--- 					constants = "NONE",
--- 					numbers = "NONE",
--- 					operators = "NONE",
--- 					strings = "NONE",
--- 					types = "NONE",
--- 				},
--- 			},
--- 		})
--- 		vim.cmd([[
+--     "projekt0n/github-nvim-theme",
+--     name = "github-theme",
+--     lazy = false, -- make sure we load this during startup if it is your main colorscheme
+--     priority = 1000, -- make sure to load this before all the other start plugins
+--     config = function()
+--         -- Default options
+--         require("github-theme").setup({
+--             options = {
+--                 -- Compiled file's destination location compile_path = vim.fn.stdpath("cache") .. "/github-theme",
+--                 compile_file_suffix = "_compiled", -- Compiled file suffix
+--                 hide_end_of_buffer = true, -- Hide the '~' character at the end of the buffer for a cleaner look
+--                 hide_nc_statusline = true, -- Override the underline style for non-active statuslines
+--                 transparent = true,    -- Disable setting bg (make neovim's background transparent)
+--                 terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in :terminal
+--                 dim_inactive = false,  -- Non focused panes set to alternative background
+--                 module_default = true, -- Default enable value for modules
+--                 styles = {
+--                     comments = "NONE",
+--                     functions = "NONE",
+--                     keywords = "NONE",
+--                     variables = "NONE",
+--                     conditionals = "NONE",
+--                     constants = "NONE",
+--                     numbers = "NONE",
+--                     operators = "NONE",
+--                     strings = "NONE",
+--                     types = "NONE",
+--                 },
+--             },
+--         })
+--         vim.cmd([[
 --       augroup CustomColors
 --       autocmd!
 --       autocmd ColorScheme * hi ColorColumn guibg=#14171C
 --       augroup END
 --     ]])
--- 		vim.cmd([[
+--         vim.cmd([[
 --         augroup CustomCursorLine
 --         autocmd!
 --         autocmd ColorScheme * hi CursorLine guibg=NONE
 --         "autocmd ColorScheme * hi CursorLine guibg=#171B22
 --         augroup END
 --     ]])
--- 		vim.cmd("colorscheme github_dark_default")
--- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#14171C" })
--- 		vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#565f89", bg = "NONE" })
--- 		vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#14171C" })
--- 		vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#565f89", bg = "#14171C" })
--- 		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#F78166", bold = true })
--- 		vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#3e4452" })
--- 		vim.api.nvim_set_hl(0, "TelescopeTitle", { fg = "#77BDFB", bold = true })
--- 	end,
+--         -- vim.cmd("colorscheme github_light_default")
+--         vim.cmd("colorscheme github_dark_default")
+--         vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#14171C" })
+--         vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#565f89", bg = "NONE" })
+--         vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "#14171C" })
+--         vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = "#565f89", bg = "#14171C" })
+--         -- vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#F78166", bold = true })
+--         vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#77BDFB", bold = true })
+--         vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#3e4452" })
+--         vim.api.nvim_set_hl(0, "TelescopeTitle", { fg = "#77BDFB", bold = true })
+--     end,
 -- }
