@@ -28,6 +28,7 @@ return {
             -- Telescope itself
             vim.keymap.set("n", "<leader>t", ":Telescope <CR>", {})
 
+            -- buffer navigation
             vim.keymap.set("n", "<leader>b", function()
                 builtin.buffers({
                     sort_lastused = true,
@@ -35,6 +36,9 @@ return {
                     previewer = false,
                 })
             end, { desc = "List Open Buffers" })
+            vim.keymap.set("n", "]b", ":bnext <CR>")
+            vim.keymap.set("n", "[b", ":bprev <CR>")
+            --
 
             -- Live Grep
             vim.keymap.set("n", "<leader>fg", function()

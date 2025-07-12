@@ -23,7 +23,7 @@ vim.opt.ignorecase = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakindent = true
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 -- vim.opt.colorcolumn = "80"
 
 ---------------------------------------------------------------------

@@ -38,10 +38,14 @@ return {
 				null_ls.builtins.formatting.stylua,
 				-- typescript
 				null_ls.builtins.formatting.prettier.with({
-					extra_args = { "--tab-width", "4", "--print-width", "120" },
+					-- prefer_local = "node_modules/.bin", -- use project-local Prettier
+					extra_args = { "--tab-width", "4", "--print-width", "120", "--semi", true },
 				}),
+				-- WARNING: deprecated
 				-- null_ls.builtins.formatting.eslint_d,
-				require("none-ls.diagnostics.eslint"),
+
+				-- NOTE: deactivated because of delijan local eslint
+				-- require("none-ls.diagnostics.eslint"),
 			},
 			-- Format on save
 			on_attach = function(client, bufnr)
